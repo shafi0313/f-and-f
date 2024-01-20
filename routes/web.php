@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.dashboard');
 });
+
+
+
+Route::get('login/locked', [LoginController::class,'locked'])->middleware('auth')->name('login.locked');
+Route::post('login/locked', [LoginController::class,'unlock'])->name('login.unlock');
