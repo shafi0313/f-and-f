@@ -62,11 +62,11 @@
                         <!-- Logo -->
                         <div class="card-header pt-4 text-center">
                             <div class="auth-brand mb-0">
-                                <a href="index.html" class="logo-dark">
+                                <a href="{{ route('admin.dashboard') }}" class="logo-dark">
                                     <span><img src="{{ asset('backend/images/logo-dark.png') }}" alt="dark logo"
                                             height="28"></span>
                                 </a>
-                                <a href="index.html" class="logo-light">
+                                <a href="{{ route('admin.dashboard') }}" class="logo-light">
                                     <span><img src="{{ asset('backend/images/logo.png') }}" alt="logo"
                                             height="28"></span>
                                 </a>

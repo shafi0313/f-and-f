@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone', 32)->nullable();
             $table->string('image', 32)->nullable();
             $table->string('address')->nullable();
+            $table->enum('is_active',[0,1])->default(1);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
