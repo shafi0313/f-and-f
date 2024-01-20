@@ -15,7 +15,7 @@ class AuthLock
      */
     public function handle($request, Closure $next)
     {
-        if (!$request()->user()) {
+        if (!request()->user()) {
             return $next($request);
         }
         // If the user does not have this feature enabled, then just return next.

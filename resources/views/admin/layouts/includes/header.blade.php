@@ -43,7 +43,8 @@
             <div class="app-search dropdown d-none d-lg-block">
                 <form>
                     <div class="input-group">
-                        <input type="search" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
+                        <input type="search" class="form-control dropdown-toggle" placeholder="Search..."
+                            id="top-search">
                         <span class="ri-search-line search-icon"></span>
                     </div>
                 </form>
@@ -81,7 +82,9 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <div class="d-flex">
-                                <img class="d-flex me-2 rounded-circle" src="{{ asset('backend/images/users/avatar-2.jpg') }}" alt="Generic placeholder image" height="32">
+                                <img class="d-flex me-2 rounded-circle"
+                                    src="{{ asset('backend/images/users/avatar-2.jpg') }}"
+                                    alt="Generic placeholder image" height="32">
                                 <div class="w-100">
                                     <h5 class="m-0 fs-14">Erwin Brown</h5>
                                     <span class="fs-12 mb-0">UI Designer</span>
@@ -92,7 +95,9 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <div class="d-flex">
-                                <img class="d-flex me-2 rounded-circle" src="{{ asset('backend/images/users/avatar-5.jpg') }}" alt="Generic placeholder image" height="32">
+                                <img class="d-flex me-2 rounded-circle"
+                                    src="{{ asset('backend/images/users/avatar-5.jpg') }}"
+                                    alt="Generic placeholder image" height="32">
                                 <div class="w-100">
                                     <h5 class="m-0 fs-14">Jacob Deo</h5>
                                     <span class="fs-12 mb-0">Developer</span>
@@ -106,48 +111,58 @@
 
         <ul class="topbar-menu d-flex align-items-center gap-3">
             <li class="dropdown d-lg-none">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="false">
                     <i class="ri-search-line fs-22"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg p-0">
                     <form class="p-3">
-                        <input type="search" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                        <input type="search" class="form-control" placeholder="Search ..."
+                            aria-label="Recipient's username">
                     </form>
                 </div>
             </li>
 
             <li class="dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{ asset('backend/images/flags/us.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="12">
-                    <span class="align-middle d-none d-lg-inline-block">English</span> <i class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
+                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false" aria-expanded="false">
+                    <img src="{{ asset('backend/images/flags/us.jpg') }}" alt="user-image" class="me-0 me-sm-1"
+                        height="12">
+                    <span class="align-middle d-none d-lg-inline-block">English</span> <i
+                        class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated">
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('backend/images/flags/germany.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                        <img src="{{ asset('backend/images/flags/germany.jpg') }}" alt="user-image" class="me-1"
+                            height="12"> <span class="align-middle">German</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('backend/images/flags/italy.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                        <img src="{{ asset('backend/images/flags/italy.jpg') }}" alt="user-image" class="me-1"
+                            height="12"> <span class="align-middle">Italian</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('backend/images/flags/spain.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                        <img src="{{ asset('backend/images/flags/spain.jpg') }}" alt="user-image" class="me-1"
+                            height="12"> <span class="align-middle">Spanish</span>
                     </a>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item">
-                        <img src="{{ asset('backend/images/flags/russia.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                        <img src="{{ asset('backend/images/flags/russia.jpg') }}" alt="user-image" class="me-1"
+                            height="12"> <span class="align-middle">Russian</span>
                     </a>
 
                 </div>
             </li>
 
             <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
+                    role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="ri-notification-3-fill fs-22"></i>
                     <span class="noti-icon-badge"></span>
                 </a>
@@ -170,7 +185,8 @@
                         <h5 class="text-muted fs-12 fw-bold p-2 text-uppercase mb-0">Today</h5>
                         <!-- item-->
 
-                        <a href="javascript:void(0);" class="dropdown-item p-0 notify-item unread-noti card m-0 shadow-none">
+                        <a href="javascript:void(0);"
+                            class="dropdown-item p-0 notify-item unread-noti card m-0 shadow-none">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
@@ -179,15 +195,18 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-medium fs-14">Datacorp <small class="fw-normal text-muted float-end ms-1">1 min ago</small></h5>
-                                        <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
+                                        <h5 class="noti-item-title fw-medium fs-14">Datacorp <small
+                                                class="fw-normal text-muted float-end ms-1">1 min ago</small></h5>
+                                        <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on
+                                            Admin</small>
                                     </div>
                                 </div>
                             </div>
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                        <a href="javascript:void(0);"
+                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
@@ -196,7 +215,8 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-medium fs-14">Admin <small class="fw-normal text-muted float-end ms-1">1 hr ago</small></h5>
+                                        <h5 class="noti-item-title fw-medium fs-14">Admin <small
+                                                class="fw-normal text-muted float-end ms-1">1 hr ago</small></h5>
                                         <small class="noti-item-subtitle text-muted">New user registered</small>
                                     </div>
                                 </div>
@@ -206,17 +226,21 @@
                         <h5 class="text-muted fs-12 fw-bold p-2 mb-0 text-uppercase">Yesterday</h5>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                        <a href="javascript:void(0);"
+                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <div class="notify-icon">
-                                            <img src="{{ asset('backend/images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle" alt="" />
+                                            <img src="{{ asset('backend/images/users/avatar-2.jpg') }}"
+                                                class="img-fluid rounded-circle" alt="" />
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 text-truncate ms-2">
-                                        <h5 class="noti-item-title fw-medium fs-14">Cristina Pride <small class="fw-normal text-muted float-end ms-1">1 day ago</small></h5>
-                                        <small class="noti-item-subtitle text-muted">Hi, How are you? What about our next meeting</small>
+                                        <h5 class="noti-item-title fw-medium fs-14">Cristina Pride <small
+                                                class="fw-normal text-muted float-end ms-1">1 day ago</small></h5>
+                                        <small class="noti-item-subtitle text-muted">Hi, How are you? What about our
+                                            next meeting</small>
                                     </div>
                                 </div>
                             </div>
@@ -225,7 +249,8 @@
                         <h5 class="text-muted fs-12 fw-bold p-2 mb-0 text-uppercase">31 Jan 2023</h5>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                        <a href="javascript:void(0);"
+                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
@@ -235,24 +260,28 @@
                                     </div>
                                     <div class="flex-grow-1 text-truncate ms-2">
                                         <h5 class="noti-item-title fw-medium fs-14">Datacorp</h5>
-                                        <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on Admin</small>
+                                        <small class="noti-item-subtitle text-muted">Caleb Flakelar commented on
+                                            Admin</small>
                                     </div>
                                 </div>
                             </div>
                         </a>
 
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
+                        <a href="javascript:void(0);"
+                            class="dropdown-item p-0 notify-item read-noti card m-0 shadow-none">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <div class="notify-icon">
-                                            <img src="{{ asset('backend/images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle" alt="" />
+                                            <img src="{{ asset('backend/images/users/avatar-4.jpg') }}"
+                                                class="img-fluid rounded-circle" alt="" />
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 text-truncate ms-2">
                                         <h5 class="noti-item-title fw-medium fs-14">Karen Robinson</h5>
-                                        <small class="noti-item-subtitle text-muted">Wow ! this admin looks good and awesome design</small>
+                                        <small class="noti-item-subtitle text-muted">Wow ! this admin looks good and
+                                            awesome design</small>
                                     </div>
                                 </div>
                             </div>
@@ -260,7 +289,8 @@
                     </div>
 
                     <!-- All-->
-                    <a href="javascript:void(0);" class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
+                    <a href="javascript:void(0);"
+                        class="dropdown-item text-center text-primary text-decoration-underline fw-bold notify-item border-top border-light py-2">
                         View All
                     </a>
 
@@ -268,7 +298,8 @@
             </li>
 
             <li class="dropdown d-none d-sm-inline-block">
-                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
+                    role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="ri-apps-2-fill fs-22"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated dropdown-lg p-0">
@@ -340,9 +371,11 @@
             </li>
 
             <li class="dropdown me-md-2">
-                <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#"
+                    role="button" aria-haspopup="false" aria-expanded="false">
                     <span class="account-user-avatar">
-                        <img src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="user-image" width="32" class="rounded-circle">
+                        <img src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="user-image" width="32"
+                            class="rounded-circle">
                     </span>
                     <span class="d-lg-flex flex-column gap-1 d-none">
                         <h5 class="my-0">Doris Larson</h5>
@@ -374,16 +407,19 @@
                     </a>
 
                     <!-- item-->
-                    <a href="auth-lock-screen.html" class="dropdown-item">
+                    <a href="{{ route('login.locked') }}" class="dropdown-item">
                         <i class="ri-lock-password-fill align-middle me-1"></i>
                         <span>Lock Screen</span>
                     </a>
 
                     <!-- item-->
-                    <a href="auth-logout-2.html" class="dropdown-item">
-                        <i class="ri-logout-box-fill align-middle me-1"></i>
-                        <span>Logout</span>
-                    </a>
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="dropdown-item">
+                            <i class="ri-logout-box-fill align-middle me-1"></i>
+                            <span>Logout</span>
+                        </button>
+                    </form>
                 </div>
             </li>
         </ul>

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    use Hash;
+
 
     public function __construct()
     {

@@ -1,6 +1,7 @@
 <?php
 
 use Laravel\Fortify\Features;
+use App\Providers\RouteServiceProvider;
 
 return [
 
@@ -73,7 +74,7 @@ return [
     |
     */
 
-    'home' => '/home',
+    'home' => RouteServiceProvider::DASHBOARD,
 
     /*
     |--------------------------------------------------------------------------
@@ -154,6 +155,10 @@ return [
             'confirmPassword' => true,
             // 'window' => 0,
         ]),
+    ],
+
+    'redirects' => [
+        'logout' => 'login',
     ],
 
 ];
