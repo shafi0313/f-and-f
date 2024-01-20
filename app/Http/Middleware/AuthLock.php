@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthLock
@@ -15,26 +17,9 @@ class AuthLock
      */
     public function handle($request, Closure $next)
     {
-        if (!request()->user()) {
-            return $next($request);
-        }
-        // If the user does not have this feature enabled, then just return next.
-        if (!$request->user()->hasLockoutTime()) {
-            // Check if previous session was set, if so, remove it because we don't need it here.
-            if (session('lock-expires-at')) {
-                session()->forget('lock-expires-at');
-            }
-
-            return $next($request);
-        }
-
-        if ($lockExpiresAt = session('lock-expires-at')) {
-            if ($lockExpiresAt < now()) {
-                return redirect()->route('login.locked');
-            }
-        }
-
-        session(['lock-expires-at' => now()->addMinutes($request->user()->getLockoutTime())]);
+        // if (Auth::check() && Session::get('is_locked')) {
+        //     return redirect()->route('login.locked');
+        // }
 
         return $next($request);
     }
