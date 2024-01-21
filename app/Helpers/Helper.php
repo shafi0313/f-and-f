@@ -120,22 +120,19 @@ if (!function_exists('imagePath')) {
     }
 }
 
-if (!function_exists('set')) {
-    function set($data)
-    {
-        return !empty(setting($data)) ? setting($data) : '';
-    }
-}
-
-
-
 if (!function_exists('profileImg')) {
     function profileImg()
     {
         if (file_exists(asset('uploads/images/user/' . user()->image))) {
             return asset('uploads/images/user/' . user()->image);
         } else {
-            return asset('uploads/images/user/profile_blank.png');
+            return asset('uploads/images/user/avatar.png');
+            // if(user()->gender && user()->gender == 'Female'){
+            //     return asset('uploads/images/user/female-blank.jpg');
+            // }else{
+            //     return asset('uploads/images/user/avatar.png');
+            // }
+
         }
     }
 }

@@ -374,12 +374,12 @@
                 <a class="nav-link dropdown-toggle arrow-none nav-user px-2" data-bs-toggle="dropdown" href="#"
                     role="button" aria-haspopup="false" aria-expanded="false">
                     <span class="account-user-avatar">
-                        <img src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="user-image" width="32"
+                        <img src="{{ profileImg() }}" alt="user-image" width="32"
                             class="rounded-circle">
                     </span>
                     <span class="d-lg-flex flex-column gap-1 d-none">
-                        <h5 class="my-0">Doris Larson</h5>
-                        <h6 class="my-0 fw-normal">Founder</h6>
+                        <h5 class="my-0">{{ user()->name }}</h5>
+                        {{-- <h6 class="my-0 fw-normal">Founder</h6> --}}
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
