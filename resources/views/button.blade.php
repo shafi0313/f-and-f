@@ -5,17 +5,11 @@
     <i class="fa-solid fa-trash text-danger"></i>
 </a> --}}
 
-
-
-
-
 @if ($type == 'ajax-edit')
-    <button data-route="{{ $route }}" data-value="{{ $row->id }}" onclick="ajaxEdit(this)" class='text-primary _btn' title="@lang('Edit')">
+    <button data-route="{{ $route }}" data-value="{{ $row->id }}" onclick="ajaxEdit(this)"
+        class='text-primary _btn' title="@lang('Edit')">
         <i class='fa fa-edit'></i>
     </button>
-    {{-- <button href="javascript: void(0);" class="fs-18 px-1">
-        <i class="fa-solid fa-pen-to-square text-primary"></i>
-    </button> --}}
 @endif
 
 @if ($type == 'edit')
@@ -25,15 +19,17 @@
 @endif
 
 @if ($type == 'delete')
-    <button data-route="{{ route($route . '.destroy', $row->id) }}" class='_delete text-danger _btn' title="@lang('Delete')">
+    <button data-route="{{ route($route . '.destroy', $row->id) }}" class='_delete text-danger _btn'
+        title="@lang('Delete')">
         <i class='fa fa-trash'></i>
     </button>
 @endif
 
 @if ($type == 'ajax-delete')
-    <button data-route="{{ $route }}" data-value="{{ $row->id }}" onclick="ajaxDelete(this, '{{ $src }}')" class='text-danger _btn' title="@lang('Delete')">
+    <button data-route="{{ $route }}" data-value="{{ $row->id }}"
+        onclick="ajaxDelete(this, '{{ $src }}')" class='text-danger _btn' title="@lang('Delete')">
         <i class='fa fa-trash' style="vertical-align: middle;"></i>
-        </button>
+    </button>
 @endif
 
 @if ($type == 'view')
@@ -44,14 +40,14 @@
 
 @if ($type == 'impersonate')
     @canBeImpersonated($row)
-    <a href="{{ route('panel.impersonate', $row->id) }}" class="btn btn-success mb-2" target="_blank" title="@lang('user.impersonate-user')"
-        title="@lang('user.impersonate-user')"><i class="fa btn-white fa-user-secret"></i></a>
+    <a href="{{ route('panel.impersonate', $row->id) }}" class="btn btn-success mb-2" target="_blank"
+        title="@lang('user.impersonate-user')" title="@lang('user.impersonate-user')"><i class="fa btn-white fa-user-secret"></i></a>
     @endCanBeImpersonated
 @endif
 
 @if ($type == 'log')
-    <a href="{{ route('panel.user.activitlog', $row->id) }}" class="btn  btn-sm btn-warning mb-2" target="_blank" title="@lang('activity.log')"
-        title="@lang('activity.log')"><i class="fa btn-white fa-history"></i></a>
+    <a href="{{ route('panel.user.activitlog', $row->id) }}" class="btn  btn-sm btn-warning mb-2" target="_blank"
+        title="@lang('activity.log')" title="@lang('activity.log')"><i class="fa btn-white fa-history"></i></a>
 @endif
 
 {{-- @if ($type == 'status')

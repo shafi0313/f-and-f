@@ -11,7 +11,7 @@
                     <h4 class="header-title">Input Types</h4>
 
                     <div class="table-responsive-sm">
-                        <table id="data_table" class="table table-bordered border-primary table-centered mb-0">
+                        <table id="data_table" class="table table-bordered bordered table-centered mb-0">
                             <thead>
                             </thead>
                             <tbody>

@@ -25,7 +25,7 @@ class AdminUserController extends Controller
                 ->addIndexColumn()
                 ->addColumn('image', function ($row) {
                     $path = asset('uploads/images/user/' . $row->image);
-                    return '<img src="' . $path . '" width="50px" height="50px">';
+                    return '<img src="' . $path . '" width="50px" height="50px" alt="image">';
                 })
                 ->addColumn('is_active', function ($row) {
                     if (userCan('admin-user-edit')) {
@@ -49,14 +49,14 @@ class AdminUserController extends Controller
         return view('admin.user.index');
     }
 
-    function status(User $adminUser)
+    function status(User $user)
     {
-        if ($error = $this->authorize('adminUser-edit')) {
+        if ($error = $this->authorize('admin-user-edit')) {
             return $error;
         }
-        $adminUser->is_active = $adminUser->is_active  == '1' ? '0' : '1';
+        $user->is_active = $user->is_active  == 1 ? 0 : 1;
         try {
-            $adminUser->save();
+            $user->save();
             return response()->json(['message' => 'The status has been updated'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
