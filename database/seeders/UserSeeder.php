@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Constants\Gender;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
@@ -19,6 +20,8 @@ class UserSeeder extends Seeder
                 'email' => 'admin@app.com',
                 'user_name' => null,
                 'role' => 1,
+                'gender' => Gender::MALE,
+                'removable' => 0,
                 'password' => bcrypt('##Zxc1234'),
             ],
         ];
