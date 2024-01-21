@@ -27,9 +27,9 @@ class AdminUserController extends Controller
                     $path = asset('uploads/images/user/' . $row->image);
                     return '<img src="' . $path . '" width="50px" height="50px">';
                 })
-                ->addColumn('status', function ($row) {
+                ->addColumn('is_active', function ($row) {
                     if (userCan('admin-user-edit')) {
-                        return view('button', ['type' => 'status', 'route' => route('admin.sliders.is_active', $row->id), 'row' => $row->is_active]);
+                        return view('button', ['type' => 'is_active', 'route' => route('admin.admin_users.is_active', $row->id), 'row' => $row->is_active]);
                     }
                 })
                 ->addColumn('action', function ($row) {
@@ -42,11 +42,25 @@ class AdminUserController extends Controller
                     }
                     return $btn;
                 })
-                ->rawColumns(['image', 'action'])
+                ->rawColumns(['image', 'is_active', 'action'])
                 ->make(true);
         }
         // $roles = Role::all();
         return view('admin.user.index');
+    }
+
+    function status(User $adminUser)
+    {
+        if ($error = $this->authorize('adminUser-edit')) {
+            return $error;
+        }
+        $adminUser->is_active = $adminUser->is_active  == '1' ? '0' : '1';
+        try {
+            $adminUser->save();
+            return response()->json(['message' => 'The status has been updated'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
+        }
     }
 
 

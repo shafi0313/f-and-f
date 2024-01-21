@@ -67,7 +67,7 @@
     </span>
 @endif --}}
 
-@if ($type == 'status')
+@if ($type == 'is_active')
     <span data-route="{{ $route }}"
         style="font-size: 36px;line-height: 1;vertical-align: middle;cursor: pointer;" data-value="{{ $row }}"
         onclick="changeStatusPatch(this)">

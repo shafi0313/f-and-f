@@ -31,6 +31,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
+    <link href="{{ asset('common/plugins/cute-alert/cute-alert.css') }}" rel="stylesheet" >
+
     <!-- Datatables css -->
     <link href="{{ asset('backend/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
         type="text/css" />
@@ -99,6 +101,7 @@
     <!-- Vendor js -->
     <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
 
+    <script src="{{ asset('common/plugins/cute-alert/cute-alert.js') }}"></script>
     <script src="{{ asset('common/js/custom.js') }}"></script>
 
     <!-- Datatables js -->
