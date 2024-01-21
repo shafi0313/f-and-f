@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}">
 
@@ -31,7 +31,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('common/plugins/cute-alert/cute-alert.css') }}" rel="stylesheet" >
+
 
     <!-- Datatables css -->
     <link href="{{ asset('backend/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
@@ -101,7 +101,16 @@
     <!-- Vendor js -->
     <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
 
+
+    {{-- Sweet alert --}}
+    <script src="{{ asset('common/plugins/sweet-alert/sweetalert-2.min.js') }}"></script>
+    {{-- Cute alert --}}
+    <link href="{{ asset('common/plugins/cute-alert/cute-alert.css') }}" rel="stylesheet" >
     <script src="{{ asset('common/plugins/cute-alert/cute-alert.js') }}"></script>
+    {{-- Select 2 --}}
+    <script src="{{ asset('common/plugins/select2/css/select2.min.css') }}"></script>
+    <script src="{{ asset('common/plugins/select2/js/select2.min.js') }}"></script>
+
     <script src="{{ asset('common/js/custom.js') }}"></script>
 
     <!-- Datatables js -->
