@@ -15,9 +15,9 @@ class AdminUserController extends Controller
 {
     public function index(Request $request)
     {
-        if ($error = $this->authorize('admin-user-manage')) {
-            return $error;
-        }
+        // if ($error = $this->authorize('admin-user-manage')) {
+        //     return $error;
+        // }
         if ($request->ajax()) {
             $admin_users = User::whereIn('role', ['1']);
             return DataTables::of($admin_users)
@@ -29,8 +29,9 @@ class AdminUserController extends Controller
                     return ageWithDays($row->d_o_b);
                 })
                 ->addColumn('image', function ($row) {
-                    $path = asset('uploads/images/users/' . $row->image);
-                    return html()->img()->src($path)->style('width:70px');
+                    $path = asset('uploads/images/user/' . $row->image);
+                    return '<img src="' . $path . '" width="50px" height="50px">';
+
                 })
                 ->addColumn('action', function ($row) {
                     $btn = '';
@@ -46,7 +47,7 @@ class AdminUserController extends Controller
                 ->make(true);
         }
         $roles = Role::all();
-        return view('dashboard.user.index', compact('roles'));
+        return view('admin.user.index', compact('roles'));
     }
 
 

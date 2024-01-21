@@ -60,6 +60,22 @@
             </li>
 
             <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarAdmin" aria-expanded="false" aria-controls="sidebarAdmin"
+                    class="side-nav-link">
+                    <i class="ri-mail-fill"></i>
+                    <span> Admin </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarAdmin">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('admin.admin-users.index') }}">Admin User</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="side-nav-item">
                 <a href="" class="side-nav-link">
                     <i class="ri-calendar-2-fill"></i>
                     <span> Calendar </span>
