@@ -1,98 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <title>Dashboard | Jidox - Material Design Admin & Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | Jidox - Material Design Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
 
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('backend/images/favicon.ico') }}">
 
-        <!-- Daterangepicker css -->
-        <link rel="stylesheet" href="{{ asset('backend/vendor/daterangepicker/daterangepicker.css') }}">
+    <!-- Daterangepicker css -->
+    <link rel="stylesheet" href="{{ asset('backend/vendor/daterangepicker/daterangepicker.css') }}">
 
-        <!-- Vector Map css -->
-        <link rel="stylesheet" href="{{ asset('backend/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}">
+    <!-- Vector Map css -->
+    {{-- <link rel="stylesheet" href="{{ asset('backend/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}"> --}}
 
-        <!-- Theme Config Js -->
-        <script src="{{ asset('backend/js/config.js') }}"></script>
+    <!-- Theme Config Js -->
+    <script src="{{ asset('backend/js/config.js') }}"></script>
 
-        <!-- App css -->
-        <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
-
-        <!-- Icons css -->
-        <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    </head>
-
-    <body>
-        <!-- Begin page -->
-        <div class="wrapper">
+    <!-- App css -->
+    <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
 
-            <!-- ========== Topbar Start ========== -->
-            @include('admin.layouts.includes.header')
-            <!-- ========== Topbar End ========== -->
+    <!-- Icons css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 
-            <!-- ========== Left Sidebar Start ========== -->
-            @include('admin.layouts.includes.navigation')
-            <!-- ========== Left Sidebar End ========== -->
+    <!-- Datatables css -->
+    <link href="{{ asset('backend/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ asset('backend/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
 
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
 
-            <div class="content-page">
-                <div class="content">
+</head>
 
-                    <!-- Start Content-->
-                    <div class="container-fluid">
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
 
-                        @yield('content')
 
-                    </div>
-                    <!-- container -->
+        <!-- ========== Topbar Start ========== -->
+        @include('admin.layouts.includes.header')
+        <!-- ========== Topbar End ========== -->
+
+        <!-- ========== Left Sidebar Start ========== -->
+        @include('admin.layouts.includes.navigation')
+        <!-- ========== Left Sidebar End ========== -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    @yield('content')
 
                 </div>
-                <!-- content -->
-
-                <!-- Footer Start -->
-                @include('admin.layouts.includes.footer')
-                <!-- end Footer -->
+                <!-- container -->
 
             </div>
+            <!-- content -->
 
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
+            <!-- Footer Start -->
+            @include('admin.layouts.includes.footer')
+            <!-- end Footer -->
 
         </div>
-        <!-- END wrapper -->
 
-        <!-- Theme Settings -->
-        @include('admin.layouts.includes.theme-settings')
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
 
-        <!-- Vendor js -->
-        <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
+    </div>
+    <!-- END wrapper -->
 
-        <!-- Daterangepicker js -->
-        <script src="{{ asset('backend/vendor/daterangepicker/moment.min.js') }}"></script>
-        <script src="{{ asset('backend/vendor/daterangepicker/daterangepicker.js') }}"></script>
+    <!-- Theme Settings -->
+    @include('admin.layouts.includes.theme-settings')
+    @include('admin.layouts.includes.alert')
 
-        <!-- Apex Charts js -->
-        <script src="{{ asset('backend/vendor/apexcharts/apexcharts.min.js') }}"></script>
+    <!-- Vendor js -->
+    <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
 
-        <!-- Vector Map js -->
-        <script src="{{ asset('backend/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-        <script src="{{ asset('backend/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ asset('common/js/custom.js') }}"></script>
 
-        <!-- Dashboard App js -->
-        <script src="{{ asset('backend/js/pages/demo.dashboard.js') }}"></script>
+    <!-- Datatables js -->
+    <script src="{{ asset('backend/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
 
-        <!-- App js -->
-        <script src="{{ asset('backend/js/app.min.js') }}"></script>
+    <!-- Datatable Demo Aapp js -->
+    <script src="{{ asset('backend/js/pages/demo.datatable-init.js') }}"></script>
 
-    </body>
+    <!-- Daterangepicker js -->
+    <script src="{{ asset('backend/vendor/daterangepicker/moment.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/daterangepicker/daterangepicker.js') }}"></script>
+
+    <!-- Apex Charts js -->
+    {{-- <script src="{{ asset('backend/vendor/apexcharts/apexcharts.min.js') }}"></script> --}}
+
+    <!-- Vector Map js -->
+    {{-- <script src="{{ asset('backend/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script src="{{ asset('backend/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js') }}">
+    </script> --}}
+
+    <!-- Dashboard App js -->
+    {{-- <script src="{{ asset('backend/js/pages/demo.dashboard.js') }}"></script> --}}
+
+
+
+
+    <!-- App js -->
+    <script src="{{ asset('backend/js/app.min.js') }}"></script>
+
+    @stack('scripts')
+    <div id="ajax_modal_container"></div>
+</body>
+
 </html>
