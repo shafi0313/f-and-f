@@ -212,8 +212,8 @@
                             title: 'Phone'
                         },
                         {
-                            data: 'role',
-                            name: 'role',
+                            data: 'permission',
+                            name: 'permission',
                             title: 'Permission'
                         },
                         {

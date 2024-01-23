@@ -23,9 +23,12 @@ class AdminUserController extends Controller
             $admin_users = User::whereIn('role', [1]);
             return DataTables::of($admin_users)
                 ->addIndexColumn()
+                ->addColumn('permission', function ($row) {
+                    return 'Admin';
+                })
                 ->addColumn('image', function ($row) {
                     $path = imagePath('user', $row->image);
-                    return '<img src="' . $path . '" width="50px" height="50px" alt="image">';
+                    return '<img src="' . $path . '" width="70px" alt="image">';
                 })
                 ->addColumn('is_active', function ($row) {
                     if (userCan('admin-user-edit')) {
