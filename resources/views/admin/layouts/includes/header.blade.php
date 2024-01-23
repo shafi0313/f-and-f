@@ -123,7 +123,7 @@
                 </div>
             </li>
 
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
                     aria-haspopup="false" aria-expanded="false">
                     <img src="{{ asset('backend/images/flags/us.jpg') }}" alt="user-image" class="me-0 me-sm-1"
@@ -158,9 +158,9 @@
                     </a>
 
                 </div>
-            </li>
+            </li> --}}
 
-            <li class="dropdown notification-list">
+            {{-- <li class="dropdown notification-list">
                 <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
                     role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="ri-notification-3-fill fs-22"></i>
@@ -295,9 +295,9 @@
                     </a>
 
                 </div>
-            </li>
+            </li> --}}
 
-            <li class="dropdown d-none d-sm-inline-block">
+            {{-- <li class="dropdown d-none d-sm-inline-block">
                 <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
                     role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="ri-apps-2-fill fs-22"></i>
@@ -349,7 +349,7 @@
                     </div>
 
                 </div>
-            </li>
+            </li> --}}
 
             <li class="d-none d-sm-inline-block">
                 <a class="nav-link" data-bs-toggle="offcanvas" href="#theme-settings-offcanvas">
