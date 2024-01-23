@@ -115,7 +115,7 @@ if (!function_exists('imagePath')) {
         if (@GetImageSize($path)) {
             return asset($path);
         } else {
-            return setting('app_logo');
+            return asset('uploads/images/no-img.jpg');
         }
     }
 }
