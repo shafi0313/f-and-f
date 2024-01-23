@@ -1,96 +1,57 @@
-<!-- Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit User</h5>
+                <h1 class="modal-title fs-5" id="editModalLabel">Add Admin User</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form onsubmit="ajaxStoreModal(event, this, 'editModal')" action="{{ route('admin.users.update', $user->id) }}"
-                method="POST">
+            <form onsubmit="ajaxStoreModal(event, this, 'editModal')"
+                action="{{ route('admin.admin-users.update', $admin_user->id) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf @method('PUT')
-                <input type="hidden" name="update" value="1">
                 <div class="modal-body">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label for="role" class="form-label required">Permission </label>
-                            <select class="form-select" name="role" required>
-                                <option selected disabled value="">Choose...</option>
-                                @foreach ($roles as $role)
-                                    <option value="{{ $role->name }}" @selected( preg_replace(('/[^a-z ^\d]/'), '', $user->getRoleNames()) ==  $role->name)>{{ ucfirst($role->name) }}</option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('role'))
-                                <div class="alert alert-danger">{{ $errors->first('role') }}</div>
-                            @endif
+                    @bind($admin_user)
+                        <div class="row gy-2">
+                            <div class="col-md-6">
+                                <x-form-input name="name" label="Name *" />
+                            </div>
+                            <div class="col-md-6">
+                                <x-form-input type="email" name="email" label="Email *" />
+                            </div>
+                            <div class="col-md-6">
+                                <x-form-input name="user_name" label="user name " />
+                            </div>
+                            <div class="col-md-6">
+                                <x-form-input name="phone" label="phone *" oninput="phoneIn(event)" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gender" class="form-label">Gender *</label>
+                                <select class="form-select" name="gender">
+                                    <option selected disabled value="">Choose...</option>
+                                    @foreach ($genders as $gender)
+                                        <option value="{{ $gender['id'] }}" @selected($gender['id'] == $admin_user->gender)>
+                                            {{ $gender['name'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <x-form-input name="address" label="address *" />
+                            </div>
+                            <div class="col-md-6">
+                                <x-form-input type="file" name="image" label="image *" />
+                            </div>
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                            <div class="col-md-4 form-check form-switch">
+                                <label for="is_active" class="form-label status_label d-block required">Status </label>
+                                <input class="form-check-input" type="checkbox" id="is_active_input" value="1"
+                                    name="is_active" checked>
+                                <label class="form-check-label" for="is_active_input" id="is_active_label">Active</label>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="name" class="form-label required">Name </label>
-                            <input type="search" name="name" class="form-control" value="{{ $user->name }}"
-                                required />
-                            @if ($errors->has('name'))
-                                <div class="alert alert-danger">{{ $errors->first('name') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email" class="form-label required">Email </label>
-                            <input type="email" name="email" class="form-control" value="{{ $user->email }}"/>
-                            @if ($errors->has('email'))
-                                <div class="alert alert-danger">{{ $errors->first('email') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-md-6">
-                            <label for="phone" class="form-label">Phone </label>
-                            <input type="search" name="phone" class="form-control" value="{{ $user->phone }}" />
-                            @if ($errors->has('phone'))
-                                <div class="alert alert-danger">{{ $errors->first('phone') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-md-6">
-                            <label for="d_o_b" class="form-label">Date of Birth </label>
-                            <input type="date" name="d_o_b" class="form-control" value="{{ $user->d_o_b }}" />
-                            @if ($errors->has('d_o_b'))
-                                <div class="alert alert-danger">{{ $errors->first('d_o_b') }}</div>
-                            @endif
-                        </div>
-                        @if ($user->image)
-                        <div class="col-md-6">
-                            <label for="image" class="form-label">Photo </label>
-                            <img src="{{ imagePath('user', $user->image) }}" alt="{{ $user->name }}">
-                        </div>
-                        @endif
-                        <div class="col-md-6">
-                            <label for="image" class="form-label">Photo </label>
-                            <input type="file" name="image" class="form-control" value="{{ old('image') }}" />
-                            @if ($errors->has('image'))
-                                <div class="alert alert-danger">{{ $errors->first('image') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-md-12">
-                            <label for="address" class="form-label">Address </label>
-                            <input type="search" name="address" class="form-control" value="{{ $user->address }}" />
-                            @if ($errors->has('address'))
-                                <div class="alert alert-danger">{{ $errors->first('address') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-md-6">
-                            <label for="password" class="form-label"> password</label>
-                            <input type="password" name="password" class="form-control" value=""
-                                 />
-                            @if ($errors->has('password'))
-                                <div class="alert alert-danger">{{ $errors->first('password') }}</div>
-                            @endif
-                        </div>
-                        <div class="col-md-6">
-                            <label for="password_confirmation" class="form-label">Password Confirmation
-                            </label>
-                            <input type="password" name="password_confirmation" class="form-control"
-                                value="{{ old('password_confirmation') }}" />
-                            @if ($errors->has('password_confirmation'))
-                                <div class="alert alert-danger">{{ $errors->first('password_confirmation') }}</div>
-                            @endif
-                        </div>
-                    </div>
+                    @endbind
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -100,4 +61,3 @@
         </div>
     </div>
 </div>
-{!! JsValidator::formRequest('App\Http\Requests\UpdateUserRequest') !!}

@@ -91,18 +91,19 @@ class AdminUserController extends Controller
         }
     }
 
-    // public function edit(Request $request, User $admin_user)
-    // {
-    //     if ($error = $this->authorize('admin-user-edit')) {
-    //         return $error;
-    //     }
-    //     if ($request->ajax()) {
-    //         $roles = Role::all();
-    //         $modal = view('dashboard.admin_user.edit')->with(['admin_user' => $admin_user, 'roles' => $roles])->render();
-    //         return response()->json(['modal' => $modal], 200);
-    //     }
-    //     return abort(500);
-    // }
+    public function edit(Request $request, User $admin_user)
+    {
+        if ($error = $this->authorize('admin-user-edit')) {
+            return $error;
+        }
+        if ($request->ajax()) {
+            $roles = Role::all();
+            $genders = config('datum.gender');
+            $modal = view('admin.user.admin.edit')->with(['admin_user' => $admin_user, 'roles' => $roles, 'genders' => $genders])->render();
+            return response()->json(['modal' => $modal], 200);
+        }
+        return abort(500);
+    }
 
     // public function update(UpdateUserRequest $request, User $admin_user)
     // {

@@ -25,13 +25,12 @@ class StoreAdminUserRequest extends FormRequest
             'name'      => ['required', 'string', 'min:1', 'max:100'],
             'email'     => ['required', 'string', 'min:1', 'max:64', 'unique:users,email'],
             'user_name' => ['nullable', 'string', 'min:1', 'max:32', 'unique:users,user_name'],
-            // 'role'      => ['required', 'integer', 'min:0', 'max:255'],
             'gender'    => ['required', 'integer', 'in:1,2,3'],
             'phone'     => ['required', 'string', 'min:1', 'max:32'],
             'address'   => ['required', 'string', 'min:1', 'max:191'],
             'is_active' => ['nullable', 'boolean'],
             'image'     => ['required', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
-            'password'  => ['required', 'string', 'min:1', 'max:191'],
+            'password'  => ['required', 'string', 'min:6', 'max:191'],
         ];
     }
 }
