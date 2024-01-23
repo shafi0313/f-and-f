@@ -13,14 +13,12 @@
                             <i class="fa-solid fa-plus"></i> Add New
                         </button>
                     </div>
-                    <div class="">
-                        <table id="data_table" class="table table-bordered bordered table-centered mb-0 w-100">
-                            <thead>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                    <table id="data_table" class="table table-bordered bordered table-centered mb-0 w-100">
+                        <thead>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
 
 
 
