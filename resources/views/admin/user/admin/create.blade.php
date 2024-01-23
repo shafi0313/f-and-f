@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="gender" class="form-label">Gender *</label>
-                            <select class="form-select" id="gender">
+                            <select class="form-select" name="gender">
                                 <option selected disabled value="">Choose...</option>
                                 @foreach ($genders as $gender)
                                     <option value="{{ $gender['id'] }}">{{ $gender['name'] }}</option>
