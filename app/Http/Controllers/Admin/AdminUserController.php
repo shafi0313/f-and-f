@@ -52,7 +52,8 @@ class AdminUserController extends Controller
                 ->make(true);
         }
         // $roles = Role::all();
-        return view('admin.user.admin.index');
+        $data['genders'] = config('datum.gender');
+        return view('admin.user.admin.index', $data);
     }
 
     function status(User $user)

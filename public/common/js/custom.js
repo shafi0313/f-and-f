@@ -123,7 +123,7 @@ function digitInput(event) {
 function floatInput(event) {
     event.target.value = event.target.value.replace(/[^\d.]/g, "");
 }
-function phoneNI(event) {
+function phoneIn(event) {
     event.target.value = event.target.value.replace(/[^\d.+-]/g, "");
 }
 

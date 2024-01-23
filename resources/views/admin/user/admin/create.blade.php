@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="createModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="createModalLabel">Add Admin User</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form onsubmit="ajaxStoreModal(event, this, 'createModal')" action="{{ route('admin.admin-users.store') }}"
@@ -12,6 +12,27 @@
                     <div class="row gy-2">
                         <div class="col-md-6">
                             <x-form-input name="name" label="Name *" />
+                        </div>
+                        <div class="col-md-6">
+                            <x-form-input type="email" name="email" label="Email *" />
+                        </div>
+                        <div class="col-md-6">
+                            <x-form-input name="phone" label="phone *" oninput="phoneIn(event)" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="gender" class="form-label">Gender *</label>
+                            <select class="form-select" id="gender">
+                                <option selected disabled value="">Choose...</option>
+                                @foreach ($genders as $gender)
+                                    <option value="{{ $gender['id'] }}">{{ $gender['name'] }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <x-form-input name="address" label="address *" />
+                        </div>
+                        <div class="col-md-6">
+                            <x-form-input type="file" name="image" label="image *" />
                         </div>
                         <div class="col-md-6">
                             <x-form-input name="password" label="password *" />

@@ -23,6 +23,7 @@
     <!-- App css -->
     <link href="{{ asset('backend/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
     <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('common/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
 
     <!-- Icons css -->
