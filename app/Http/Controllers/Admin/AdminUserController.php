@@ -49,7 +49,7 @@ class AdminUserController extends Controller
                 ->make(true);
         }
         // $roles = Role::all();
-        return view('admin.user.index');
+        return view('admin.user.admin.index');
     }
 
     function status(User $user)

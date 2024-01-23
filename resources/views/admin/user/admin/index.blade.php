@@ -1,23 +1,19 @@
 @extends('admin.layouts.app')
-{{-- @section('title', 'User') --}}
+@section('title', 'Admin User')
 @section('content')
-
-    @include('admin.layouts.includes.breadcrumb', ['title' => ['Admin', 'Users', 'Index']])
+    @include('admin.layouts.includes.breadcrumb', ['title' => ['Admin', 'Admin Users', 'Index']])
 
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
                     <div class="d-flex justify-content-between mb-2">
                         <h4 class="card-title">List of Admin Users</h4>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
-                            Launch demo modal
-                          </button>
+                            <i class="fa-solid fa-plus"></i> Add New
+                        </button>
                     </div>
-
-
-                    <div class="table-responsive-sm">
+                    <div class="">
                         <table id="data_table" class="table table-bordered bordered table-centered mb-0">
                             <thead>
                             </thead>
@@ -173,9 +169,9 @@
             </div> <!-- end card -->
         </div><!-- end col -->
     </div><!-- end row -->
-    {{-- @can('user-add')
-        @include('admin.user.create')
-    @endcan --}}
+    @can('admin-user-add')
+        @include('admin.user.admin.create')
+    @endcan
     @push('scripts')
         <script>
             $(function() {
@@ -184,7 +180,8 @@
                     serverSide: true,
                     deferRender: true,
                     ordering: true,
-                    responsive: true,
+                    // responsive: true,
+                    scrollX: true,
                     scrollY: 400,
                     ajax: "{{ route('admin.admin-users.index') }}",
                     columns: [{
