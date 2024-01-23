@@ -15,16 +15,16 @@ class AdminUserController extends Controller
 {
     public function index(Request $request)
     {
-        // if ($error = $this->authorize('admin-user-manage')) {
-        //     return $error;
-        // }
+        if ($error = $this->authorize('admin-user-manage')) {
+            return $error;
+        }
 
         if ($request->ajax()) {
             $admin_users = User::whereIn('role', [1]);
             return DataTables::of($admin_users)
                 ->addIndexColumn()
                 ->addColumn('image', function ($row) {
-                    $path = asset('uploads/images/user/' . $row->image);
+                    $path = imagePath('user', $row->image);
                     return '<img src="' . $path . '" width="50px" height="50px" alt="image">';
                 })
                 ->addColumn('is_active', function ($row) {
