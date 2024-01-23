@@ -120,6 +120,18 @@ if (!function_exists('imagePath')) {
     }
 }
 
+if (!function_exists('gender')) {
+    function gender(int $user)
+    {
+        return match ($user) {
+            1 => 'Male',
+            2 => 'Female',
+            3 => 'Other',
+            default => 'Unknown'
+        };
+    }
+}
+
 if (!function_exists('profileImg')) {
     function profileImg()
     {

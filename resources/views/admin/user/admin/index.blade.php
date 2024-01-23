@@ -14,7 +14,7 @@
                         </button>
                     </div>
                     <div class="">
-                        <table id="data_table" class="table table-bordered bordered table-centered mb-0">
+                        <table id="data_table" class="table table-bordered bordered table-centered mb-0 w-100">
                             <thead>
                             </thead>
                             <tbody>
@@ -207,6 +207,11 @@
                             data: 'phone',
                             name: 'phone',
                             title: 'Phone'
+                        },
+                        {
+                            data: 'gender',
+                            name: 'gender',
+                            title: 'gender'
                         },
                         {
                             data: 'permission',

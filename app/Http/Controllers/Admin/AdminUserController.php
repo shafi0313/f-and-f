@@ -23,6 +23,9 @@ class AdminUserController extends Controller
             $admin_users = User::whereIn('role', [1]);
             return DataTables::of($admin_users)
                 ->addIndexColumn()
+                ->addColumn('gender', function ($row) {
+                    return gender($row->gender);
+                })
                 ->addColumn('permission', function ($row) {
                     return 'Admin';
                 })
