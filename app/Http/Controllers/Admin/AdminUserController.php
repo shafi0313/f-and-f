@@ -111,7 +111,7 @@ class AdminUserController extends Controller
             return $error;
         }
         $data = $adminRequest->validated();
-        if($request->password && !Hash::check($request->old_password, $admin_user->password)){
+        if ($request->password && !Hash::check($request->old_password, $admin_user->password)) {
             return response()->json(['message' => "Old Password Doesn't match!"], 500);
         }
         if (isset($request->password)) {
@@ -119,7 +119,7 @@ class AdminUserController extends Controller
         }
         $image = $admin_user->image;
         if ($request->hasFile('image')) {
-            $data['image'] = imgWebpUpdate($request->image, 'user', [300,300], $image);
+            $data['image'] = imgWebpUpdate($request->image, 'user', [300, 300], $image);
         }
         try {
             $admin_user->update($data);

@@ -38,7 +38,7 @@
                                 <x-form-input name="address" label="address *" />
                             </div>
                             <div class="col-md-6">
-                                <x-form-input type="file" name="image" label="image *" />
+                                <x-form-input type="file" name="image" label="image " />
                             </div>
                             <div class="col-md-6">
                                 <label for="password" class="form-label">Old Password</label>

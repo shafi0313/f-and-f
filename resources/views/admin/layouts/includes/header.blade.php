@@ -389,15 +389,9 @@
                     </div>
 
                     <!-- item-->
-                    <a href="pages-profile.html" class="dropdown-item">
+                    <a href="{{ route('admin.my-profile.index') }}" class="dropdown-item">
                         <i class="ri-account-circle-fill align-middle me-1"></i>
                         <span>My Account</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="pages-profile.html" class="dropdown-item">
-                        <i class="ri-settings-4-fill align-middle me-1"></i>
-                        <span>Settings</span>
                     </a>
 
                     <!-- item-->

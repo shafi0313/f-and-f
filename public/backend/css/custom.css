@@ -8,6 +8,13 @@
     line-height: 1px !important;
 }
 
+.my-profile-edit {
+    position: absolute;
+    right: 15px;
+    font-size: 30px;
+    top: 15px;
+}
+
 /* Form CSS Start */
 .required::after {
     content: "*";
