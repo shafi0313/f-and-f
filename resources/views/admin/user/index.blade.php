@@ -8,7 +8,14 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title">Input Types</h4>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <h4 class="card-title">List of Admin Users</h4>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                            Launch demo modal
+                          </button>
+                    </div>
+
 
                     <div class="table-responsive-sm">
                         <table id="data_table" class="table table-bordered bordered table-centered mb-0">
