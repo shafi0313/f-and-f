@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form onsubmit="ajaxStoreModal(event, this, 'createModal')" action="{{ route('admin.admin-users.store') }}"
-                method="POST">
+                method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="row gy-2">
@@ -15,6 +15,9 @@
                         </div>
                         <div class="col-md-6">
                             <x-form-input type="email" name="email" label="Email *" />
+                        </div>
+                        <div class="col-md-6">
+                            <x-form-input name="user_name" label="user name " />
                         </div>
                         <div class="col-md-6">
                             <x-form-input name="phone" label="phone *" oninput="phoneIn(event)" />
@@ -35,10 +38,10 @@
                             <x-form-input type="file" name="image" label="image *" />
                         </div>
                         <div class="col-md-6">
-                            <x-form-input name="password" label="password *" />
+                            <x-form-input type="password" name="password" label="password *" />
                         </div>
                         <div class="col-md-6">
-                            <x-form-input name="password_confirmation" label="password confirmation *" />
+                            <x-form-input type="password" name="password_confirmation" label="password confirmation *" />
                         </div>
                         <div class="col-md-4 form-check form-switch">
                             <label for="is_active" class="form-label status_label d-block required">Status </label>

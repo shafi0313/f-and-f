@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\StoreAdminUserRequest;
 
 class AdminUserController extends Controller
 {
@@ -71,24 +72,24 @@ class AdminUserController extends Controller
     }
 
 
-    // public function store(StoreUserRequest $request)
-    // {
-    //     if ($error = $this->authorize('admin-user-add')) {
-    //         return $error;
-    //     }
-    //     $data = $request->validated();
-    //     $data['role'] = '1';
-    //     if ($request->hasFile('image')) {
-    //         $data['image'] = imageStore($request, 'image', 'user', 'uploads/images/user/');
-    //     }
-    //     try {
-    //         $admin_user = User::create($data);
-    //         $admin_user->assignRole($request->role);
-    //         return response()->json(['message' => __('app.success-message')], 200);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['message'=>__('app.oops')], 500);
-    //     }
-    // }
+    public function store(StoreAdminUserRequest $request)
+    {
+        if ($error = $this->authorize('admin-user-add')) {
+            return $error;
+        }
+        $data = $request->validated();
+        $data['role'] = 1;
+        if ($request->hasFile('image')) {
+            $data['image'] = imgWebpStore($request->image, 'user', [300, 300]);
+        }
+        try {
+            $admin_user = User::create($data);
+            // $admin_user->assignRole($request->role);
+            return response()->json(['message' => 'The information has been inserted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
+        }
+    }
 
     // public function edit(Request $request, User $admin_user)
     // {
