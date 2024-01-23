@@ -30,7 +30,7 @@ class StoreAdminUserRequest extends FormRequest
             'address'   => ['required', 'string', 'min:1', 'max:191'],
             'is_active' => ['nullable', 'boolean'],
             'image'     => ['required', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
-            'password'  => ['required', 'string', 'min:6', 'max:191'],
+            'password'  => ['required', 'confirmed', 'string', 'min:6', 'max:191'],
         ];
     }
 }

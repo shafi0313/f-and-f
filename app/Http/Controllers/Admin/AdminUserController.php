@@ -7,10 +7,12 @@ use App\Models\ModelHasRole;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StoreAdminUserRequest;
+use App\Http\Requests\UpdateAdminUserRequest;
 
 class AdminUserController extends Controller
 {
@@ -78,6 +80,7 @@ class AdminUserController extends Controller
             return $error;
         }
         $data = $request->validated();
+        $data['password'] = bcrypt($request->password);
         $data['role'] = 1;
         if ($request->hasFile('image')) {
             $data['image'] = imgWebpStore($request->image, 'user', [300, 300]);
@@ -105,47 +108,44 @@ class AdminUserController extends Controller
         return abort(500);
     }
 
-    // public function update(UpdateUserRequest $request, User $admin_user)
-    // {
-    //     if ($error = $this->authorize('admin-user-add')) {
-    //         return $error;
-    //     }
-    //     $data = $request->validated();
-    //     if (user()->email != $request->email) {
-    //         $data['email'] = $request->email;
-    //     }
-    //     if (isset($request->password)) {
-    //         $data['password'] = bcrypt($request->password);
-    //     }
-    //     $image = user()->image;
-    //     if ($request->hasFile('image')) {
-    //         $data['image'] = imageUpdate($request, 'image', 'user', 'uploads/images/user/', $image);
-    //     }
-    //     try {
-    //         $admin_user->update($data);
-    //         if($request->role){
-    //             ModelHasRole::whereModel_id($admin_user->id)->update(['role_id'=>Role::whereName($request->role)->first()->id]);
-    //         }
-    //         return response()->json(['message' => 'Data Successfully Inserted'], 200);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['message' => __('app.oops')], 500);
-    //     }
-    // }
+    public function update(Request $request, UpdateAdminUserRequest $adminRequest, User $admin_user)
+    {
+        if ($error = $this->authorize('admin-user-add')) {
+            return $error;
+        }
+        $data = $adminRequest->validated();
+        if($request->password && !Hash::check($request->old_password, $admin_user->password)){
+            return response()->json(['message' => "Old Password Doesn't match!"], 500);
+        }
+        if (isset($request->password)) {
+            $data['password'] = bcrypt($request->password);
+        }
+        $image = $admin_user->image;
+        if ($request->hasFile('image')) {
+            $data['image'] = imgWebpUpdate($request->image, 'user', [300,300], $image);
+        }
+        try {
+            $admin_user->update($data);
+            // if($request->role){
+            //     ModelHasRole::whereModel_id($admin_user->id)->update(['role_id'=>Role::whereName($request->role)->first()->id]);
+            // }
+            return response()->json(['message' => 'The information has been updated'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
+        }
+    }
 
-    // public function destroy(User $admin_user)
-    // {
-    //     if ($error = $this->authorize('admin-user-delete')) {
-    //         return $error;
-    //     }
-    //     try {
-    //         $checkPath =  public_path('uploads/images/user/' . $admin_user->image);
-    //         if (file_exists($checkPath)) {
-    //             unlink($checkPath);
-    //         }
-    //         $admin_user->delete();
-    //         return response()->json(['message' => __('app.success-message')], 200);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['message' => __('app.oops')], 500);
-    //     }
-    // }
+    public function destroy(User $admin_user)
+    {
+        if ($error = $this->authorize('admin-user-delete')) {
+            return $error;
+        }
+        try {
+            imgUnlink('brand', $admin_user->image);
+            $admin_user->delete();
+            return response()->json(['message' => 'The information has been deleted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
+        }
+    }
 }

@@ -105,6 +105,16 @@ if (!function_exists('imgWebpUpdate')) {
         return $imageName;
     }
 }
+if (!function_exists('imgUnlink')) {
+    function imgUnlink($folder, $image)
+    {
+        $path = public_path('uploads/images/' . $folder . '/' . $image);
+        if ($image && file_exists($path)) {
+            return unlink($path);
+        }
+    }
+}
+
 
 if (!function_exists('imageStore')) {
     function imageStore(Request $request, $request_name, string $name, string $path)

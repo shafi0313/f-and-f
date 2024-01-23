@@ -22,15 +22,16 @@ class UpdateAdminUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'      => ['required', 'string', 'min:1', 'max:100'],
-            'email'     => ['required', 'string', 'min:1', 'max:64', 'unique:users,email', $this->user->id],
-            'user_name' => ['nullable', 'string', 'min:1', 'max:32', 'unique:users,user_name', $this->user->id],
-            'gender'    => ['required', 'integer', 'in:1,2,3'],
-            'phone'     => ['required', 'string', 'min:1', 'max:32'],
-            'address'   => ['required', 'string', 'min:1', 'max:191'],
-            'is_active' => ['nullable', 'boolean'],
-            'image'     => ['required', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
-            'password'  => ['nullable', 'string', 'min:6', 'max:191'],
+            'name'         => ['required', 'string', 'min:1', 'max:100'],
+            'email'        => ['required', 'string', 'min:1', 'max:64', 'unique:users,email,' . $this->admin_user->id . 'id'],
+            'user_name'    => ['nullable', 'string', 'min:1', 'max:32', 'unique:users,user_name,' . $this->admin_user->id . 'id'],
+            'gender'       => ['required', 'integer', 'in:1,2,3'],
+            'phone'        => ['required', 'string', 'min:1', 'max:32'],
+            'address'      => ['required', 'string', 'min:1', 'max:191'],
+            'is_active'    => ['nullable', 'boolean'],
+            'image'        => ['nullable', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
+            // 'old_password' => ['nullable', 'string', 'min:6', 'max:191'],
+            // 'password'     => ['nullable', 'string', 'min:6', 'max:191'],
         ];
     }
 }
