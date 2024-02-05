@@ -52,7 +52,7 @@ class AppDbBackupController extends Controller
      */
     public function backupFiles()
     {
-        Artisan::call('backup:run', ['--only-files' => true, '--filename' => now()->format('Y-m-d-H-i-s').'_FILES.zip']);
+        Artisan::call('backup:run', ['--only-files' => true, '--filename' => now()->format('Y-m-d-H-i-s') . '_FILES.zip']);
         $output = Artisan::output();
 
         if (Str::contains($output, 'Backup completed!')) {
@@ -72,7 +72,7 @@ class AppDbBackupController extends Controller
      */
     public function backupDb()
     {
-        Artisan::call('backup:run', ['--only-db' => true, '--filename' => now()->format('Y-m-d-H-i-s').'_DATABASE.zip']);
+        Artisan::call('backup:run', ['--only-db' => true, '--filename' => now()->format('Y-m-d-H-i-s') . '_DATABASE.zip']);
         $output = Artisan::output();
 
         if (Str::contains($output, 'Backup completed!')) {

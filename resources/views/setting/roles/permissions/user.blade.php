@@ -4,13 +4,13 @@
         <label for="title">{{ $name }}</label>
     </div>
     <div class="col-sm-9">
-        <p>@lang('role.do-you', ['plugin'=> $name])</p>
+        <p>Do you want to allow members of this role to manage {{ $name }} plugin.</p>
         <div>
             <input type="checkbox" value="user-manage" class="flat-red hasChildOptions"
                 data-child_id="childOfManageUser" name="permissions[]" id="ManageUser"
                 @if($permissions['user-manage']==1) checked @endif>
             <label class="chk-label-margin mx-1" for="ManageUser">
-                @lang('role.yes-allow', ['attribute'=> $name])
+                Yes, allow members in this role to manage {{ $name }}.
             </label>
         </div>
         <div style="@if($permissions['user-manage'] == 1) display:block @else display:none @endif"

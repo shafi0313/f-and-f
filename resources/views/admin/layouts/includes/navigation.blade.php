@@ -77,13 +77,13 @@
 
             {{-- settings --}}
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail"
+                <a data-bs-toggle="collapse" href="#sidebarSettings" aria-expanded="false" aria-controls="sidebarSettings"
                     class="side-nav-link">
-                    <i class="ri-mail-fill"></i>
+                    <i class="fa-solid fa-gear"></i>
                     <span> @lang('Settings') </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarEmail">
+                <div class="collapse" id="sidebarSettings">
                     <ul class="side-nav-second-level">
                         <li class="{{ activeNav('admin.permission.*') }}">
                             <a href="{{ route('admin.role.index') }}">@lang('Roles & Permission')</a>
