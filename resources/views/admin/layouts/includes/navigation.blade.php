@@ -75,6 +75,28 @@
                 </div>
             </li>
 
+            {{-- settings --}}
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail"
+                    class="side-nav-link">
+                    <i class="ri-mail-fill"></i>
+                    <span> @lang('Settings') </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarEmail">
+                    <ul class="side-nav-second-level">
+                        <li class="{{ activeNav('admin.permission.*') }}">
+                            <a href="{{ route('admin.role.index') }}">@lang('Roles & Permission')</a>
+                        </li>
+                        <li class="{{ activeNav('admin.backup.*') }}">
+                            <a href="{{ route('admin.backup.password') }}">@lang('App DB Backup')</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+
             <li class="side-nav-item">
                 <a href="" class="side-nav-link">
                     <i class="ri-calendar-2-fill"></i>
