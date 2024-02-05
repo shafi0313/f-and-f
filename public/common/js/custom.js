@@ -1,4 +1,3 @@
-
 // Checkbox checked
 // function checkcheckbox() {
 //     // Total checkboxes
@@ -56,8 +55,6 @@
 //         });
 // }
 
-
-
 // function select2Ajax(id, placeholder, route, dropdown = 'body') {
 //     $('#' + id).select2({
 //         placeholder: placeholder,
@@ -82,40 +79,48 @@
 //     });
 // }
 
-// $(document).ready(function () {
-//     $(".select2single").select2();
-//     $(".select2singleModel").select2({
-//         dropdownParent: $("#createModal").closest("div"),
-//     });
+$(document).ready(function () {
+    // $(".select2single").select2();
+    // $(".select2singleModel").select2({
+    //     dropdownParent: $("#createModal").closest("div"),
+    // });
 
-//     var fullDate = new Date();
-//     var twoDigitMonth =
-//         (fullDate.getMonth() + 1 < 10 ? "0" : "") + (fullDate.getMonth() + 1);
-//     var currentDate =
-//         (fullDate.getDate() < 10 ? "0" : "") +
-//         fullDate.getDate() +
-//         "/" +
-//         twoDigitMonth +
-//         "/" +
-//         fullDate.getFullYear();
-//     $(".bDP input").val(currentDate);
-//     // $('#order_date').val(currentDate);
-// });
+    var fullDate = new Date();
+    var twoDigitMonth =
+        (fullDate.getMonth() + 1 < 10 ? "0" : "") + (fullDate.getMonth() + 1);
+    var currentDate =
+        (fullDate.getDate() < 10 ? "0" : "") +
+        fullDate.getDate() +
+        "/" +
+        twoDigitMonth +
+        "/" +
+        fullDate.getFullYear();
+    $(".bDP input").val(currentDate);
+    // $('#order_date').val(currentDate);
+});
 
-// $(function () {
-//     // var date = new Date();
-//     // var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-//     $(".bDP input").datepicker({
-//         format: "dd/mm/yyyy",
-//         autoclose: true,
-//         clearBtn: true,
-//         todayHighlight: true,
-//         container: ".bDP",
-//         defaultViewDate: "today",
-//         orientation: "auto",
-//     });
-// });
+$(function () {
+    // var date = new Date();
+    // var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    $(".bDP input").datepicker({
+        format: "dd/mm/yyyy",
+        autoclose: true,
+        clearBtn: true,
+        todayHighlight: true,
+        container: ".bDP",
+        defaultViewDate: "today",
+        orientation: "auto",
+    });
+});
 
+function toast(type, message) {
+    cuteToast({
+        type: type,
+        title: type.toUpperCase(),
+        message: message,
+        timer: 5000,
+    });
+}
 function digitInput(event) {
     event.target.value = event.target.value.replace(/[^\d]/g, "");
 }
@@ -162,4 +167,3 @@ $(function () {
         }
     }
 });
-

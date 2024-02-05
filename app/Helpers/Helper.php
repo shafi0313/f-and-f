@@ -53,9 +53,43 @@ if (!function_exists('strPad4')) {
 if (!function_exists('strPad6')) {
     function strPad6($data)
     {
-        return str_pad($data, 6, '0', STR_PAD_LEFT);
+        if($data){
+            return str_pad($data, 6, '0', STR_PAD_LEFT);
+        }else{
+            return '';
+        }
     }
 }
+
+if (!function_exists('venQuery')) {
+    function venQuery()
+    {
+        return fn ($q) => $q->where('vendor_id', 1)->orWhere('vendor_id', user()->branch_id);
+    }
+}
+
+if (!function_exists('venId')) {
+    function venId()
+    {
+        return user()->vendor_id;
+    }
+}
+
+if (!function_exists('acType')) {
+    function acType(int $data)
+    {
+        return match ($data) {
+            1 => 'Income',
+            2 => 'Expense',
+            3 => 'Asset',
+            4 => 'Lability',
+            5 => 'Equity',
+            default => 'Unknown'
+        };
+    }
+}
+
+
 // if (!function_exists('carbon')) {
 //     function carbon($d_o_b)
 //     {
@@ -69,7 +103,7 @@ if (!function_exists('imgWebpStore')) {
     function imgWebpStore($image, string $path, array $size = null)
     {
         $image = Image::make($image);
-        if ($size[0] || $size[1]) {
+        if (!is_null($size) && count($size) == 2) {
             $image->fit($size[0], $size[1]);
         }
 
@@ -155,7 +189,7 @@ if (!function_exists('imageUpdate')) {
                 $image->move(public_path("uploads/images/{$path}/"), $imageName);
                 return $imageName;
             }
-        }else{
+        } else {
             return $old_image;
         }
     }
@@ -234,19 +268,19 @@ if (!function_exists('nFA2')) {
     }
 }
 
-if (!function_exists('activeSubNav')) {
-    function activeSubNav($route)
-    {
-        if (is_array($route)) {
-            $rt = '';
-            foreach ($route as $rut) {
-                $rt .= request()->routeIs($rut) || '';
-            }
-            return $rt ? ' mm-active ' : '';
-        }
-        return request()->routeIs($route) ? ' mm-active ' : '';
-    }
-}
+// if (!function_exists('activeSubNav')) {
+//     function activeSubNav($route)
+//     {
+//         if (is_array($route)) {
+//             $rt = '';
+//             foreach ($route as $rut) {
+//                 $rt .= request()->routeIs($rut) || '';
+//             }
+//             return $rt ? ' mm-active ' : '';
+//         }
+//         return request()->routeIs($route) ? ' mm-active ' : '';
+//     }
+// }
 
 if (!function_exists('activeNav')) {
     function activeNav($route)
@@ -256,9 +290,9 @@ if (!function_exists('activeNav')) {
             foreach ($route as $rut) {
                 $rt .= request()->routeIs($rut) || '';
             }
-            return $rt ? ' mm-active ' : '';
+            return $rt ? ' menuitem-active ' : '';
         }
-        return request()->routeIs($route) ? ' mm-active ' : '';
+        return request()->routeIs($route) ? ' menuitem-active ' : '';
     }
 }
 
@@ -269,7 +303,7 @@ if (!function_exists('openNav')) {
         foreach ($routes as $route) {
             $rt .= request()->routeIs($route) || '';
         }
-        return $rt ? ' mm-collapse mm-show ' : '';
+        return $rt ? ' show ' : '';
     }
 }
 if (!function_exists('userCan')) {
@@ -449,13 +483,13 @@ if (!function_exists('niceFileSize')) {
     if (!function_exists('quantityUnit')) {
         function quantityUnit($quantity, $unit, $type = null)
         {
-            if($unit == 'G'){
+            if ($unit == 'G') {
                 $quantity = $quantity / 1000;
                 $unit = 'KG';
-            }elseif($unit == 'ML'){
+            } elseif ($unit == 'ML') {
                 $quantity = $quantity / 1000;
                 $unit = 'L';
-            }else{
+            } else {
                 $quantity = $quantity;
                 $unit = $unit;
             }

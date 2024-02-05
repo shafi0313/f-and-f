@@ -54,7 +54,7 @@
             <li class="side-nav-title mt-1"> Main</li>
             <li class="side-nav-item">
                 <a href="{{ route('admin.dashboard') }}" class="side-nav-link">
-                    <i class="ri-dashboard-2-fill"></i>
+                    <i class="fa-solid fa-gauge-simple-high"></i>
                     <span> Dashboard </span>
                 </a>
             </li>
@@ -62,7 +62,7 @@
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarAdmin" aria-expanded="false" aria-controls="sidebarAdmin"
                     class="side-nav-link">
-                    <i class="ri-mail-fill"></i>
+                    <i class="fa-solid fa-user-shield"></i>
                     <span> Admin </span>
                     <span class="menu-arrow"></span>
                 </a>

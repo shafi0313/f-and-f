@@ -59,6 +59,7 @@ class RolesAndPermissionsSeeder extends Seeder
                 'app-setting-edit',
                 'app-setting-delete',
             ],
+            
         ];
         foreach ($pers as $per => $val) {
             foreach ($val as $name) {
