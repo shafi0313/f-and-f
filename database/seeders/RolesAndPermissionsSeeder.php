@@ -24,14 +24,6 @@ class RolesAndPermissionsSeeder extends Seeder
                 'access-dashboard',
                 'dashboard-manage',
             ],
-            'admin-user' => [
-                'admin-user-manage',
-                'admin-user-add',
-                'admin-user-edit',
-                'admin-user-delete',
-                'admin-user-impersonate',
-                'admin-user-access-dashboard',
-            ],
             'user' => [
                 'user-manage',
                 'user-add',
@@ -40,12 +32,22 @@ class RolesAndPermissionsSeeder extends Seeder
                 'user-impersonate',
                 'user-access-dashboard',
             ],
-            'permission' => [
-                'permission-manage',
-                'permission-add',
-                'permission-edit',
-                'permission-delete',
-                'permission-change',
+            // 'activity' => [
+            //     'activity-manage',
+            //     'activity-add',
+            //     'activity-edit',
+            //     'activity-delete'
+            // ],
+            'setting' => [
+                'setting-manage',
+                'language-manage',
+            ],
+            'visitor-info' => [
+                'visitor-info-manage',
+                'visitor-info-delete'
+            ],
+            'roles-&-permission' => [
+                'roles-&-permission-manage',
             ],
             'role' => [
                 'role-manage',
@@ -53,13 +55,17 @@ class RolesAndPermissionsSeeder extends Seeder
                 'role-edit',
                 'role-delete',
             ],
-            'app-setting' => [
-                'app-setting-manage',
-                'app-setting-add',
-                'app-setting-edit',
-                'app-setting-delete',
+            'permission' => [
+                'permission-manage',
+                'permission-add',
+                'permission-edit',
+                'permission-delete',
             ],
-            
+            'app-backup' => [
+                'app-backup-manage',
+                'app-backup-delete'
+            ],
+
         ];
         foreach ($pers as $per => $val) {
             foreach ($val as $name) {
