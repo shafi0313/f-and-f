@@ -8,7 +8,7 @@
                 <div class="container introSlideHolder">
                     <div class="align">
                         <!-- introSlideCaption -->
-                        <div class="introSlideCaption">
+                        {{-- <div class="introSlideCaption">
                             <h1 class="text-uppercase fontNeuron">Mordern Family Home</h1>
                             <div class="introSlideCaptionHolder">
                                 <address class="text-primary">
@@ -21,7 +21,7 @@
                                     <a href="#" class="btn btn-info btnSmall">Featured</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </article>
@@ -76,7 +76,7 @@
         </div>
     </section>
     <!-- findFormBlock -->
-    <form action="#" class="bgWhite findFormBlock hasShadow">
+    {{-- <form action="#" class="bgWhite findFormBlock hasShadow">
         <div class="container">
             <h2 class="fontNeuron">FIND YOUR <span class="text-info">HOME</span></h2>
             <hr class="sep elemenBlock">
@@ -329,7 +329,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form> --}}
     <!-- latestPostsBlock -->
     <section class="latestPostsBlock container">
         <!-- rowHead -->
@@ -338,14 +338,14 @@
                 <h1 class="fontNeuron blockH text-uppercase"><span class="bdrBottom">LATEST</span> <span
                         class="textSecondary">PROPERTIES</span></h1>
             </div>
-            <div class="col-xs-12 col-sm-7">
+            {{-- <div class="col-xs-12 col-sm-7">
                 <!-- postsFiltersList -->
                 <ul class="list-unstyled postsFiltersList text-capitalize text-center isoFiltersList">
                     <li class="active"><a href="#">All</a></li>
                     <li><a href="#" data-filter=".rent">For Rent</a></li>
                     <li><a href="#" data-filter=".sale">For Sale</a></li>
                 </ul>
-            </div>
+            </div> --}}
         </header>
         <!-- isoContentHolder -->
         <div class="isoContentHolder">
@@ -393,8 +393,7 @@
                                 </li>
                             </ul>
                             <!-- linkToFavourite -->
-                            <a href="#"
-                                class="linkToFavourite roundedCircle bg-primary textWhite icnHeartBeatAnim"><i
+                            <a href="#" class="linkToFavourite roundedCircle bg-primary textWhite icnHeartBeatAnim"><i
                                     class="far fa-heart"></i></a>
                         </div>
                         <h2 class="fontNeuron text-capitalize"><a href="properties-single1.html">Luxury Family Home</a>
@@ -1240,109 +1239,7 @@
             </div>
         </div>
     </section>
-    <!-- newsNstoriesBlock -->
-    <section class="bgWhite newsNstoriesBlock">
-        <div class="container">
-            <h1 class="fontNeuron blockH text-uppercase"><span class="bdrBottom">NEWS AND</span> <span
-                    class="textSecondary">STORIES</span></h1>
-            <div class="row">
-                <!-- newsCarousel -->
-                <div class="news-posts-carousel slickSlider newsCarousel">
-                    <div>
-                        <div class="col-xs-12">
-                            <!-- newsPostColumn -->
-                            <article class="newsPostColumn">
-                                <div class="aligncenter">
-                                    <a href="blog-detail.html">
-                                        <img src="https://via.placeholder.com/555x310" alt="image description">
-                                    </a>
-                                </div>
-                                <h2 class="fontNeuron"><a href="blog-detail.html">Getting Started Designing Apps for the
-                                        Apple Watch</a></h2>
-                                <p>
-                                    <a href="#" class="btn btnSmall btn-info">Ali Tufan</a>
-                                    <time datetime="2011-01-12">February 9, 2017</time>
-                                    <a href="#" class="commentsCount">12 comment</a>
-                                </p>
-                                <footer class="PostColumnFoot">
-                                    <a href="#" class="elemenBlock readMore text-capitalize">Read Article <i
-                                            class="fi flaticon-arrows readMoreIcn"></i></a>
-                                </footer>
-                            </article>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="col-xs-12">
-                            <!-- newsPostColumn -->
-                            <article class="newsPostColumn">
-                                <div class="aligncenter">
-                                    <a href="blog-detail.html">
-                                        <img src="https://via.placeholder.com/555x310" alt="image description">
-                                    </a>
-                                </div>
-                                <h2 class="fontNeuron"><a href="blog-detail.html">Take Away You Can Get From</a></h2>
-                                <p>
-                                    <a href="#" class="btn btnSmall btn-info">Ali Tufan</a>
-                                    <time datetime="2011-01-12">February 9, 2017</time>
-                                    <a href="#" class="commentsCount">12 comment</a>
-                                </p>
-                                <footer class="PostColumnFoot">
-                                    <a href="#" class="elemenBlock readMore text-capitalize">Read Article <i
-                                            class="fi flaticon-arrows readMoreIcn"></i></a>
-                                </footer>
-                            </article>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="col-xs-12">
-                            <!-- newsPostColumn -->
-                            <article class="newsPostColumn">
-                                <div class="aligncenter">
-                                    <a href="blog-detail.html">
-                                        <img src="https://via.placeholder.com/555x310" alt="image description">
-                                    </a>
-                                </div>
-                                <h2 class="fontNeuron"><a href="blog-detail.html">Getting Started Designing Apps for the
-                                        Apple Watch</a></h2>
-                                <p>
-                                    <a href="#" class="btn btnSmall btn-info">Ali Tufan</a>
-                                    <time datetime="2011-01-12">February 9, 2017</time>
-                                    <a href="#" class="commentsCount">12 comment</a>
-                                </p>
-                                <footer class="PostColumnFoot">
-                                    <a href="#" class="elemenBlock readMore text-capitalize">Read Article <i
-                                            class="fi flaticon-arrows readMoreIcn"></i></a>
-                                </footer>
-                            </article>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="col-xs-12">
-                            <!-- newsPostColumn -->
-                            <article class="newsPostColumn">
-                                <div class="aligncenter">
-                                    <a href="blog-detail.html">
-                                        <img src="https://via.placeholder.com/555x310" alt="image description">
-                                    </a>
-                                </div>
-                                <h2 class="fontNeuron"><a href="blog-detail.html">Take Away You Can Get From</a></h2>
-                                <p>
-                                    <a href="#" class="btn btnSmall btn-info">Ali Tufan</a>
-                                    <time datetime="2011-01-12">February 9, 2017</time>
-                                    <a href="#" class="commentsCount">12 comment</a>
-                                </p>
-                                <footer class="PostColumnFoot">
-                                    <a href="#" class="elemenBlock readMore text-capitalize">Read Article <i
-                                            class="fi flaticon-arrows readMoreIcn"></i></a>
-                                </footer>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- sponsorsBlock -->
+    
     <section class="container sponsorsBlock">
         <h1 class="fontNeuron blockH text-uppercase"><span class="bdrBottom">OUR</span> <span
                 class="textSecondary">PARTNERS</span></h1>
@@ -1414,20 +1311,5 @@
             </div>
         </div>
     </section>
-    <!-- signupFormAside -->
-    <form action="#" class="bgWhite signupFormAside">
-        <div class="container signupFormAsideHolder">
-            <span class="icnAbsolute elemenBlock fi flaticon-message"></span>
-            <div class="col-xs-12 col-md-offset-2 col-md-6">
-                <h3 class="fontNeuron textSecondary">Sign up for our newsletter.</h3>
-                <p>Lorem molestie odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                <div class="form-group">
-                    <input type="email" id="email" class="form-control elemenBlock" placeholder="Your email">
-                    <button type="button" class="buttonReset fi flaticon-navigation"></button>
-                </div>
-            </div>
-        </div>
-    </form>
+    
 @endsection
