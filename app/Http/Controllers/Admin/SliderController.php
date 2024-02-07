@@ -24,9 +24,6 @@ class SliderController extends Controller
             $sliders = Slider::query();
             return DataTables::of($sliders)
                 ->addIndexColumn()
-                ->addColumn('content', function ($row) {
-                    return '<textarea class="form-control>' . $row->content . '</textarea>';
-                })
                 ->addColumn('image', function ($row) {
                     $path = imagePath('slider', $row->image);
                     return '<img src="' . $path . '" width="70px" alt="image">';
@@ -76,7 +73,7 @@ class SliderController extends Controller
         }
         $data = $request->validated();
         if ($request->hasFile('image')) {
-            $data['image'] = imgWebpStore($request->image, 'slider', [1920, 1080]);
+            $data['image'] = imgWebpStore($request->image, 'slider', [1920, 750]);
         }
 
         try {
@@ -113,7 +110,7 @@ class SliderController extends Controller
         $data = $slider->validated();
         $image = $slider->image;
         if ($request->hasFile('image')) {
-            $data['image'] = imgWebpUpdate($request->image, 'user', [1920, 1080], $image);
+            $data['image'] = imgWebpUpdate($request->image, 'user', [1920, 750], $image);
         }
         try {
             $slider->update($data);

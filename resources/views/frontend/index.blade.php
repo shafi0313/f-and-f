@@ -2,78 +2,14 @@
 @section('content')
     <!-- introSlider -->
     <section class="slick-fade slickSlider introSlider">
-        <div>
-            <!-- introSlide -->
-            <article class="introSlide bgCover" style="background-image: url(https://via.placeholder.com/1920x750);">
-                <div class="container introSlideHolder">
-                    <div class="align">
-                        <!-- introSlideCaption -->
-                        {{-- <div class="introSlideCaption">
-                            <h1 class="text-uppercase fontNeuron">Mordern Family Home</h1>
-                            <div class="introSlideCaptionHolder">
-                                <address class="text-primary">
-                                    <span class="icn"><i class="fi flaticon-pin-1"></i></span>
-                                    <p>PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                                </address>
-                                <h2 class="fontNeuron">$ 490,000 <strong class="fwNormal textUnit">/ monthly</strong></h2>
-                                <div class="btnsWrap">
-                                    <a href="#" class="btn btn-success btnSmall">For Sale</a>
-                                    <a href="#" class="btn btn-info btnSmall">Featured</a>
-                                </div>
-                            </div>
-                        </div> --}}
+        @foreach ($sliders as $slider)
+            <div>
+                <article class="introSlide bgCover" style="background: url({{ imagePath('slider', $slider->image) }});">
+                    <div class="container introSlideHolder">
                     </div>
-                </div>
-            </article>
-        </div>
-        <div>
-            <!-- introSlide -->
-            <article class="introSlide bgCover" style="background-image: url(https://via.placeholder.com/1920x750);">
-                <div class="container introSlideHolder">
-                    <div class="align">
-                        <!-- introSlideCaption -->
-                        <div class="introSlideCaption">
-                            <h1 class="text-uppercase fontNeuron">Mordern Home</h1>
-                            <div class="introSlideCaptionHolder">
-                                <address class="text-primary">
-                                    <span class="icn"><i class="fi flaticon-pin-1"></i></span>
-                                    <p>PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                                </address>
-                                <h2 class="fontNeuron">$ 400,000 <strong class="fwNormal textUnit">/ monthly</strong></h2>
-                                <div class="btnsWrap">
-                                    <a href="#" class="btn btn-success btnSmall">For Sale</a>
-                                    <a href="#" class="btn btn-info btnSmall">Featured</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
-        <div>
-            <!-- introSlide -->
-            <article class="introSlide bgCover" style="background-image: url(https://via.placeholder.com/1920x750);">
-                <div class="container introSlideHolder">
-                    <div class="align">
-                        <!-- introSlideCaption -->
-                        <div class="introSlideCaption">
-                            <h1 class="text-uppercase fontNeuron">Latest Family Home</h1>
-                            <div class="introSlideCaptionHolder">
-                                <address class="text-primary">
-                                    <span class="icn"><i class="fi flaticon-pin-1"></i></span>
-                                    <p>PO Box 16122 Collins Street West Victoria 8007 Australia</p>
-                                </address>
-                                <h2 class="fontNeuron">$ 390,000 <strong class="fwNormal textUnit">/ monthly</strong></h2>
-                                <div class="btnsWrap">
-                                    <a href="#" class="btn btn-success btnSmall">For Sale</a>
-                                    <a href="#" class="btn btn-info btnSmall">Featured</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </div>
+                </article>
+            </div>
+        @endforeach
     </section>
     <!-- findFormBlock -->
     {{-- <form action="#" class="bgWhite findFormBlock hasShadow">
@@ -335,17 +271,17 @@
         <!-- rowHead -->
         <header class="row rowHead">
             <div class="col-xs-12 col-sm-5">
-                <h1 class="fontNeuron blockH text-uppercase"><span class="bdrBottom">LATEST</span> <span
+                <h1 class="fontNeuron blockH text-uppercase"><span class="bdrBottom">RESIDENTIAL</span> <span
                         class="textSecondary">PROPERTIES</span></h1>
             </div>
-            {{-- <div class="col-xs-12 col-sm-7">
+            <div class="col-xs-12 col-sm-7">
                 <!-- postsFiltersList -->
                 <ul class="list-unstyled postsFiltersList text-capitalize text-center isoFiltersList">
-                    <li class="active"><a href="#">All</a></li>
-                    <li><a href="#" data-filter=".rent">For Rent</a></li>
-                    <li><a href="#" data-filter=".sale">For Sale</a></li>
+                    <li class="active"><a href="#"></a></li>
+                    <li><a href="#" data-filter=".rent"></a></li>
+                    <li><a href="#" data-filter=".sale"></a></li>
                 </ul>
-            </div> --}}
+            </div>
         </header>
         <!-- isoContentHolder -->
         <div class="isoContentHolder">
@@ -1239,7 +1175,7 @@
             </div>
         </div>
     </section>
-    
+
     <section class="container sponsorsBlock">
         <h1 class="fontNeuron blockH text-uppercase"><span class="bdrBottom">OUR</span> <span
                 class="textSecondary">PARTNERS</span></h1>
@@ -1311,5 +1247,4 @@
             </div>
         </div>
     </section>
-    
 @endsection

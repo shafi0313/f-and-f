@@ -10,11 +10,8 @@
                 @csrf
                 <div class="modal-body">
                     <div class="row gy-2">
-                        <div class="col-md-12">
-                            <x-form-textarea name="content" label="content" class="note_content" />
-                        </div>
                         <div class="col-md-6">
-                            <x-form-input type="file" name="image" label="image * (Width: 1920 px, Height: 1080 px)" />
+                            <x-form-input type="file" name="image" label="image * (Width: 1920 px, Height: 750 px)" />
                         </div>
                         <div class="col-md-4 form-check form-switch">
                             <label for="is_active" class="form-label status_label d-block required">Status </label>

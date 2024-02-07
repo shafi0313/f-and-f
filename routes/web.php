@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LockScreenController;
+use App\Http\Controllers\Frontend\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,4 @@ Route::get('login/locked', [LockScreenController::class, 'locked'])->middleware(
 Route::post('login/locked', [LockScreenController::class, 'unlock'])->name('login.unlock');
 
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('index');
+Route::get('/', [IndexController::class, 'index'])->name('index');

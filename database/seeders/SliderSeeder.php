@@ -15,18 +15,15 @@ class SliderSeeder extends Seeder
     {
         $sliders = [
             [
-                'content' => '<h2>Ascending Excellence: Elevate Your Experience with Our Premier Lift Solutions</h2>',
-                'image' => 'slider-c99fc79e48.webp',
+                'image' => 'slider-ca1eee1108.webp',
                 'is_active' => 1,
             ],
             [
-                'content' => '<h2>Ascend with Precision: Elevate Your Experience with ECO Lifts Ltd Lifts</h2>',
-                'image' => 'slider-8c88b7be88.webp',
+                'image' => 'slider-00ec24a4c6.webp',
                 'is_active' => 1,
             ],
             [
-                'content' => '<h2>Ascending Excellence: Elevate Your Experience with Our Lift Solutions</h2>',
-                'image' => 'slider-759216aa69.webp',
+                'image' => 'slider-e54bd2c9b1.webp',
                 'is_active' => 1,
             ],
         ];

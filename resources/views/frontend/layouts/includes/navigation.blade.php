@@ -39,7 +39,7 @@
                 <form action="#" class="headerSearchForm">
                     <a class="headerSearchOpener roundedCircle bgWhite" role="button" data-toggle="collapse"
                         href="#headerSearchFormcollapse" aria-expanded="false" aria-controls="headerSearchFormcollapse">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fi flaticon-search btnOpen"></i>
                         <i class="fas fa-times btnClose"></i>
                     </a>
                     <!-- headerSearchFormcollapse -->

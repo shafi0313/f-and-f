@@ -75,6 +75,13 @@
                 </div>
             </li>
 
+            <li class="side-nav-item">
+                <a href="{{ route('admin.sliders.index') }}" class="side-nav-link">
+                    <i class="ri-calendar-2-fill"></i>
+                    <span> Slider </span>
+                </a>
+            </li>
+
             {{-- settings --}}
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarSettings" aria-expanded="false" aria-controls="sidebarSettings"

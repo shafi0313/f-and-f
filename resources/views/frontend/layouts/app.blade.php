@@ -33,7 +33,7 @@
                     <!-- pageHeaderWrap -->
                     <div class="pageHeaderWrap">
                         <!-- headerTopBar -->
-                        @include('frontend.layouts.includes.header')
+                        {{-- @include('frontend.layouts.includes.header') --}}
                         @include('frontend.layouts.includes.navigation')
                     </div>
                 </header>

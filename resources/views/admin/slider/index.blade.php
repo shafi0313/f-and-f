@@ -54,11 +54,6 @@
                             orderable: false,
                         },
                         {
-                            data: 'content',
-                            name: 'content',
-                            title: 'content'
-                        },
-                        {
                             data: 'image',
                             name: 'image',
                             title: 'image'
