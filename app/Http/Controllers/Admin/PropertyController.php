@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
+use App\Models\Room;
 
 class PropertyController extends Controller
 {
@@ -73,8 +74,20 @@ class PropertyController extends Controller
             $data['image'] = imgWebpStore($request->image, 'property', [360, 260]);
         }
 
+        $property = Property::create($data);
+        if ($request->has('name')) {
+            foreach ($request->name as $key => $property) {
+                $room = Room::create([
+                    'property_id' => $property,
+                    'name'        => $request->doc_name[$key],
+                    'description' => $request->doc_description[$key],
+                ]);
+                $room['image'] = imgWebpStore($request->doc_image[$key], 'room', [360, 260]);
+            }
+            Room::crete($room);
+        }
+
         try {
-            Property::create($data);
             return response()->json(['message' => 'The information has been inserted'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);

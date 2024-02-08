@@ -110,5 +110,32 @@
                 });
             });
         </script>
+        <script>
+            $(document).ready(function() {
+                var i = 1;
+                $('.addDocRow').click(function() {
+                    i++;
+                    let html = `
+                        <tr id="remove_${i}">
+                            <td>
+                                <input type="text" name="doc_name[]" id="doc_name" class="form-control"/>
+                            </td>
+                            <td>
+                                <textarea name="doc_note[]" id="doc_note" class="form-control"></textarea>
+                            </td>
+                            <td>
+                                <input type="file" name="file[]" multiple class="form-control" style="width:250px"/>
+                            </td>
+                            <td style="width: 20px">
+                                <span class="btn btn-sm btn-danger" onclick="remove(${i})"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            </td>
+                        </tr>`;
+                    $('#showDocRow').append(html);
+                });
+                window.remove = function(id) {
+                    $('#remove_' + id).remove();
+                };
+            });
+        </script>
     @endpush
 @endsection
