@@ -15,22 +15,12 @@ class PropertySeeder extends Seeder
     {
         $properties = [
             [
-                'name'        => '140A Presidenet Street , Kewdale ( Duplex)',
-                'no_of_rooms' => 2,
-                'address'     => 'Address 1',
-                'city'        => 'City 1',
-                'state'       => 'State 1',
-                'image'       => 'property-1.jpg',
-                'description' => 'Description 1',
-                'is_active'   => 1
-            ],
-            [
                 'name'        => '8 Rochford Way, Girrawheen WA',
                 'no_of_rooms' => 4,
                 'address'     => 'Address 1',
                 'city'        => 'City 1',
                 'state'       => 'State 1',
-                'image'       => 'property-1.jpg',
+                'image'       => 'property-5868b78639.webp',
                 'description' => 'Description 1',
                 'is_active'   => 1
             ],
@@ -40,7 +30,7 @@ class PropertySeeder extends Seeder
                 'address'     => 'Address 1',
                 'city'        => 'City 1',
                 'state'       => 'State 1',
-                'image'       => 'property-1.jpg',
+                'image'       => 'property-3fe0f38318.webp',
                 'description' => 'Description 1',
                 'is_active'   => 1
             ],
@@ -50,7 +40,7 @@ class PropertySeeder extends Seeder
                 'address'     => 'Address 1',
                 'city'        => 'City 1',
                 'state'       => 'State 1',
-                'image'       => 'property-1.jpg',
+                'image'       => 'property-d5ae5720b2.webp',
                 'description' => 'Description 1',
                 'is_active'   => 1
             ],
