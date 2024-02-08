@@ -2,61 +2,58 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Slider;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\StoreSliderRequest;
-use App\Http\Requests\UpdateSliderRequest;
+use App\Http\Requests\StorePropertyRequest;
+use App\Http\Requests\UpdatePropertyRequest;
 
-class SliderController extends Controller
+class PropertyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
-        if ($error = $this->authorize('slider-manage')) {
+        if ($error = $this->authorize('property-manage')) {
             return $error;
         }
 
         if ($request->ajax()) {
-            $sliders = Slider::query();
-            return DataTables::of($sliders)
+            $properties = Property::query();
+            return DataTables::of($properties)
                 ->addIndexColumn()
                 ->addColumn('image', function ($row) {
-                    $path = imagePath('slider', $row->image);
+                    $path = imagePath('property', $row->image);
                     return '<img src="' . $path . '" width="70px" alt="image">';
                 })
                 ->addColumn('is_active', function ($row) {
-                    if (userCan('slider-edit')) {
-                        return view('button', ['type' => 'is_active', 'route' => route('admin.sliders.is_active', $row->id), 'row' => $row->is_active]);
+                    if (userCan('property-edit')) {
+                        return view('button', ['type' => 'is_active', 'route' => route('admin.properties.is_active', $row->id), 'row' => $row->is_active]);
                     }
                 })
                 ->addColumn('action', function ($row) {
                     $btn = '';
-                    if (userCan('slider-edit')) {
-                        $btn .= view('button', ['type' => 'ajax-edit', 'route' => route('admin.sliders.edit', $row->id), 'row' => $row]);
+                    if (userCan('property-edit')) {
+                        $btn .= view('button', ['type' => 'ajax-edit', 'route' => route('admin.properties.edit', $row->id), 'row' => $row]);
                     }
-                    if (userCan('slider-delete')) {
-                        $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.sliders.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
+                    if (userCan('property-delete')) {
+                        $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.properties.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
                     }
                     return $btn;
                 })
                 ->rawColumns(['content', 'image', 'is_active', 'action'])
                 ->make(true);
         }
-        return view('admin.slider.index');
+        return view('admin.property.index');
     }
 
-    function status(Slider $slider)
+    function status(Property $property)
     {
-        if ($error = $this->authorize('slider-edit')) {
+        if ($error = $this->authorize('property-edit')) {
             return $error;
         }
-        $slider->is_active = $slider->is_active  == 1 ? 0 : 1;
+        $property->is_active = $property->is_active  == 1 ? 0 : 1;
         try {
-            $slider->save();
+            $property->save();
             return response()->json(['message' => 'The status has been updated'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
@@ -66,18 +63,18 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSliderRequest $request)
+    public function store(StorePropertyRequest $request)
     {
-        if ($error = $this->authorize('slider-add')) {
+        if ($error = $this->authorize('property-add')) {
             return $error;
         }
         $data = $request->validated();
         if ($request->hasFile('image')) {
-            $data['image'] = imgWebpStore($request->image, 'slider', [1920, 750]);
+            $data['image'] = imgWebpStore($request->image, 'property', [360, 260]);
         }
 
         try {
-            Slider::create($data);
+            Property::create($data);
             return response()->json(['message' => 'The information has been inserted'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
@@ -87,13 +84,13 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, Slider $slider)
+    public function edit(Request $request, Property $property)
     {
-        if ($error = $this->authorize('slider-edit')) {
+        if ($error = $this->authorize('property-edit')) {
             return $error;
         }
         if ($request->ajax()) {
-            $modal = view('admin.slider.edit')->with(['slider' => $slider])->render();
+            $modal = view('admin.property.edit')->with(['property' => $property])->render();
             return response()->json(['modal' => $modal], 200);
         }
         return abort(500);
@@ -102,18 +99,18 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSliderRequest $request, Slider $slider)
+    public function update(UpdatePropertyRequest $request, Property $property)
     {
-        if ($error = $this->authorize('slider-add')) {
+        if ($error = $this->authorize('property-add')) {
             return $error;
         }
-        $data = $slider->validated();
-        $image = $slider->image;
+        $data = $property->validated();
+        $image = $property->image;
         if ($request->hasFile('image')) {
-            $data['image'] = imgWebpUpdate($request->image, 'slider', [1920, 750], $image);
+            $data['image'] = imgWebpUpdate($request->image, 'property', [360, 260], $image);
         }
         try {
-            $slider->update($data);
+            $property->update($data);
             return response()->json(['message' => 'The information has been updated'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
@@ -123,14 +120,14 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Slider $slider)
+    public function destroy(Property $property)
     {
-        if ($error = $this->authorize('slider-delete')) {
+        if ($error = $this->authorize('property-delete')) {
             return $error;
         }
         try {
-            imgUnlink('slider', $slider->image);
-            $slider->delete();
+            imgUnlink('property', $property->image);
+            $property->delete();
             return response()->json(['message' => 'The information has been deleted'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);

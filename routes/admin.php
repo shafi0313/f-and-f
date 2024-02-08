@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyProfileController;
-use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\PropertyController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Setting\Permission\RoleController;
 use App\Http\Controllers\Setting\Permission\PermissionController;
@@ -38,3 +39,6 @@ Route::resource('/my-profile', MyProfileController::class)->only(['index', 'edit
 
 Route::resource('/sliders', SliderController::class)->except(['show', 'create']);
 Route::patch('/sliders/is-active/{slider}', [SliderController::class, 'status'])->name('sliders.is_active');
+
+Route::resource('/properties', PropertyController::class)->except(['show', 'create']);
+Route::patch('/properties/is-active/{slider}', [PropertyController::class, 'status'])->name('properties.is_active');

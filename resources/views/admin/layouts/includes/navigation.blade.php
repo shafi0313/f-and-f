@@ -81,6 +81,12 @@
                     <span> Slider </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{ route('admin.properties.index') }}" class="side-nav-link">
+                    <i class="ri-calendar-2-fill"></i>
+                    <span> Property </span>
+                </a>
+            </li>
 
             {{-- settings --}}
             <li class="side-nav-item">
