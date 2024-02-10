@@ -85,32 +85,32 @@ $(document).ready(function () {
     //     dropdownParent: $("#createModal").closest("div"),
     // });
 
-    var fullDate = new Date();
-    var twoDigitMonth =
-        (fullDate.getMonth() + 1 < 10 ? "0" : "") + (fullDate.getMonth() + 1);
-    var currentDate =
-        (fullDate.getDate() < 10 ? "0" : "") +
-        fullDate.getDate() +
-        "/" +
-        twoDigitMonth +
-        "/" +
-        fullDate.getFullYear();
-    $(".bDP input").val(currentDate);
+    // var fullDate = new Date();
+    // var twoDigitMonth =
+    //     (fullDate.getMonth() + 1 < 10 ? "0" : "") + (fullDate.getMonth() + 1);
+    // var currentDate =
+    //     (fullDate.getDate() < 10 ? "0" : "") +
+    //     fullDate.getDate() +
+    //     "/" +
+    //     twoDigitMonth +
+    //     "/" +
+    //     fullDate.getFullYear();
+    // $(".bDP input").val(currentDate);
     // $('#order_date').val(currentDate);
 });
 
 $(function () {
     // var date = new Date();
     // var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    $(".bDP input").datepicker({
-        format: "dd/mm/yyyy",
-        autoclose: true,
-        clearBtn: true,
-        todayHighlight: true,
-        container: ".bDP",
-        defaultViewDate: "today",
-        orientation: "auto",
-    });
+    // $(".bDP input").datepicker({
+    //     format: "dd/mm/yyyy",
+    //     autoclose: true,
+    //     clearBtn: true,
+    //     todayHighlight: true,
+    //     container: ".bDP",
+    //     defaultViewDate: "today",
+    //     orientation: "auto",
+    // });
 });
 
 function toast(type, message) {

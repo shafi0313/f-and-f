@@ -76,15 +76,15 @@ class PropertyController extends Controller
 
         $property = Property::create($data);
         if ($request->has('name')) {
-            foreach ($request->name as $key => $property) {
-                $room = Room::create([
-                    'property_id' => $property,
-                    'name'        => $request->doc_name[$key],
+            foreach ($request->doc_name as $key => $doc_name) {
+                $room = [
+                    'property_id' => $property->id,
+                    'name'        => $doc_name,
                     'description' => $request->doc_description[$key],
-                ]);
+                ];
                 $room['image'] = imgWebpStore($request->doc_image[$key], 'room', [360, 260]);
+                Room::create($room);
             }
-            Room::crete($room);
         }
 
         try {
@@ -103,6 +103,7 @@ class PropertyController extends Controller
             return $error;
         }
         if ($request->ajax()) {
+            $property = Property::with('rooms')->find($property->id);
             $modal = view('admin.property.edit')->with(['property' => $property])->render();
             return response()->json(['modal' => $modal], 200);
         }
@@ -122,12 +123,34 @@ class PropertyController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = imgWebpUpdate($request->image, 'property', [360, 260], $image);
         }
+        if ($request->has('name')) {
+            foreach ($request->doc_name as $key => $doc_name) {
+                $room = [
+                    'property_id' => $property->id,
+                    'name'        => $doc_name,
+                    'description' => $request->doc_description[$key],
+                ];
+                $room['image'] = imgWebpStore($request->doc_image[$key], 'room', [360, 260]);
+                Room::updateOrCreate($room);
+            }
+        }
         try {
             $property->update($data);
             return response()->json(['message' => 'The information has been updated'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
         }
+    }
+
+    public function roomDestroy(Request $request)
+    {
+        if ($error = $this->authorize('property-delete')) {
+            return $error;
+        }
+        $room = Room::find($request->id);
+        imgUnlink('room', $room->image);
+        $room->delete();
+        return response()->json(['message' => 'The information has been deleted'], 200);
     }
 
     /**
@@ -140,9 +163,15 @@ class PropertyController extends Controller
         }
         try {
             imgUnlink('property', $property->image);
+            $rooms = Room::where('property_id', $property->id)->get();
+            foreach ($rooms as $room) {
+                imgUnlink('room', $room->image);
+                $room->delete();
+            }
             $property->delete();
             return response()->json(['message' => 'The information has been deleted'], 200);
         } catch (\Exception $e) {
+            return $e->getMessage();
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
         }
     }

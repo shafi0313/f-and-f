@@ -28,15 +28,77 @@
                                 <x-form-input name="address" label="address" />
                             </div>
 
-                            <div class="col-md-6">
-                                <img src="{{ imagePath('property', $property->image) }}" alt="" width="200px">
+                            <div class="col-md-3">
+                                <img src="{{ imagePath('property', $property->image) }}" alt="" width="80px">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-31">
                                 <x-form-input type="file" name="image" label="image (Width: 360 px, Height: 260 px)" />
                             </div>
                             <div class="col-md-12">
                                 <x-form-textarea name="description" label="description" />
                             </div>
+                            {{-- Doc Start --}}
+                            <div class="row">
+                                <div class="col-md-12 mt-3">
+                                    <h5>Add Rooms or Others</h5>
+                                    <table class="table table-bordered">
+                                        {{-- <h2>Documents</h2> --}}
+                                        
+                                        <tr>
+                                            <th>Name *</th>
+                                            <th>Description</th>
+                                            <th width="250px">Image *</th>
+                                            <th style="width: 20px;text-align:center;">
+                                                <button class="btn btn-info btn-sm" style="padding: 4px 13px"><i
+                                                        class="fas fa-mouse"></i></button>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <input type="text" name="doc_name[]" id="doc_name"
+                                                    class="form-control" />
+                                            </td>
+                                            <td>
+                                                <textarea name="doc_description[]" id="doc_note" class="form-control"></textarea>
+                                            </td>
+                                            <td>
+                                                <input type="file" name="doc_image[]" multiple class="form-control"
+                                                    style="width:250px" />
+                                            </td>
+                                            <td style="width: 20px">
+                                                <span class="btn btn-sm btn-success editDocRow"><i class="fa fa-plus"
+                                                        aria-hidden="true"></i></span>
+                                            </td>
+                                        </tr>
+                                        <tbody id="editShowDocRow"></tbody>
+                                        @foreach ($property->rooms as $room)
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="doc_name[]" value="{{ $room->name }}"
+                                                        id="doc_name" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <textarea name="doc_description[]" id="doc_note" class="form-control">{{ $room->description }}</textarea>
+                                                </td>
+                                                <td>
+                                                    <img src="{{ imagePath('property', $room->image) }}" alt=""
+                                                        width="60px">
+                                                    <input type="file" name="doc_image[]" multiple class="form-control"
+                                                        style="width:250px" />
+                                                </td>
+                                                <td style="width: 20px">
+                                                    <span class="btn btn-sm btn-danger roomDelete"
+                                                        data-id="{{ $room->id }}">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+                            {{-- Doc End --}}
                             <div class="col-md-4 form-check form-switch">
                                 <label for="is_active" class="form-label status_label d-block required">Status </label>
                                 <input class="form-check-input" type="checkbox" id="is_active_input" value="1"
@@ -54,3 +116,51 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var ei = 1;
+
+        // Function to add a new document row
+        $('.editDocRow').click(function() {
+            ei++;
+            let html = `
+                <tr id="editRemove_${ei}">
+                    <td>
+                        <input type="text" name="doc_name[]" class="form-control"/>
+                    </td>
+                    <td>
+                        <textarea name="doc_description[]" class="form-control"></textarea>
+                    </td>
+                    <td>
+                        <input type="file" name="doc_image[]" multiple class="form-control" style="width:250px"/>
+                    </td>
+                    <td style="width: 20px">
+                        <span class="btn btn-sm btn-danger" onclick="editRemove(${ei})"><i class="fa fa-times" aria-hidden="true"></i></span>
+                    </td>
+                </tr>`;
+            $('#editShowDocRow').append(html);
+        });
+
+        // Function to remove a document row
+        window.editRemove = function(id) {
+            $('#editRemove_' + id).remove();
+        };
+
+        // AJAX call to delete a room
+        $(document).on('click', '.roomDelete', function() {
+            let id = $(this).data('id');
+            let row = $(this).closest('tr');
+            $.ajax({
+                url: "{{ route('admin.rooms.destroy') }}",
+                type: 'get',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    row.remove();
+                    toast('success', 'Room deleted successfully');
+                }
+            });
+        });
+    });
+</script>

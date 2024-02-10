@@ -27,13 +27,9 @@
     @can('property-add')
         @include('admin.property.create')
     @endcan
+
     @push('scripts')
         <script>
-            $(document).ready(function() {
-                $('.note_content').summernote({
-                    height: 150,
-                });
-            })
             $(function() {
                 $('#data_table').DataTable({
                     processing: true,
@@ -111,6 +107,38 @@
             });
         </script>
         <script>
+            function ajaxPageStore(e, form, modal) {
+                e.preventDefault();
+                // let formData = $(form).serialize();
+                let formData = new FormData(form);
+                $.ajax({
+                    url: $(form).attr("action"),
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: (res) => {
+                        swal({
+                            icon: "success",
+                            title: "Success",
+                            text: res.message,
+                        }).then((confirm) => {
+                            if (confirm) {
+                                $("#data_table").DataTable().ajax.reload();
+                                $("#" + modal).modal("hide");
+                                $(form).trigger("reset");
+                            }
+                        });
+                    },
+                    error: (err) => {
+                        swal({
+                            icon: "error",
+                            title: "Oops...",
+                            text: err.responseJSON.message,
+                        });
+                    },
+                });
+            }
             $(document).ready(function() {
                 var i = 1;
                 $('.addDocRow').click(function() {
@@ -121,10 +149,10 @@
                                 <input type="text" name="doc_name[]" id="doc_name" class="form-control"/>
                             </td>
                             <td>
-                                <textarea name="doc_note[]" id="doc_note" class="form-control"></textarea>
+                                <textarea name="doc_description[]" id="doc_note" class="form-control"></textarea>
                             </td>
                             <td>
-                                <input type="file" name="file[]" multiple class="form-control" style="width:250px"/>
+                                <input type="file" name="doc_image[]" multiple class="form-control" style="width:250px"/>
                             </td>
                             <td style="width: 20px">
                                 <span class="btn btn-sm btn-danger" onclick="remove(${i})"><i class="fa fa-times" aria-hidden="true"></i></span>

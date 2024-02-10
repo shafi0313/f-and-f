@@ -5,7 +5,7 @@
                 <h1 class="modal-title fs-5" id="createModalLabel">Add Property</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form onsubmit="ajaxStoreModal(event, this, 'createModal')" action="{{ route('admin.properties.store') }}"
+            <form onsubmit="ajaxPageStore(event, this, 'createModal')" action="{{ route('admin.properties.store') }}"
                 method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
@@ -30,39 +30,46 @@
                                 label="image * (Width: 360 px, Height: 260 px)" />
                         </div>
                         {{-- Doc Start --}}
-                    <div class="row">
-                        <div class="col-md-12 mt-3">
-                            <h5>Add Rooms or Others</h5>
-                            <table class="table table-bordered">
-                                {{-- <h2>Documents</h2> --}}
-                                <tr>
-                                    <th>Name *</th>
-                                    <th>Description</th>
-                                    <th width="250px">Image *</th>
-                                    <th style="width: 20px;text-align:center;">
-                                        <button class="btn btn-info btn-sm" style="padding: 4px 13px"><i class="fas fa-mouse"></i></button>
-                                    </th>
-                                </tr>
+                        <div class="row">
+                            <div class="col-md-12 mt-3">
+                                <h5>Add Rooms or Others</h5>
+                                <table class="table table-bordered">
+                                    {{-- <h2>Documents</h2> --}}
+                                    <thead>
+                                        <tr>
+                                            <th>Name *</th>
+                                            <th>Description</th>
+                                            <th width="250px">Image *</th>
+                                            <th style="width: 20px;text-align:center;">
+                                                <button class="btn btn-info btn-sm" style="padding: 4px 13px"><i
+                                                        class="fas fa-mouse"></i></button>
+                                            </th>
+                                        </tr>
 
-                                <tr>
-                                    <td>
-                                        <input type="text" name="doc_name[]" id="doc_name" class="form-control"/>
-                                    </td>
-                                    <td>
-                                        <textarea name="doc_description[]" id="doc_note" class="form-control"></textarea>
-                                    </td>
-                                    <td>
-                                        <input type="file" name="doc_image[]" multiple class="form-control" style="width:250px"/>
-                                    </td>
-                                    <td style="width: 20px">
-                                        <span class="btn btn-sm btn-success addDocRow"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                    </td>
-                                </tr>
-                                <tbody id="showDocRow"></tbody>
-                            </table>
+                                        <tr>
+                                            <td>
+                                                <input type="text" name="doc_name[]" id="doc_name"
+                                                    class="form-control" />
+                                            </td>
+                                            <td>
+                                                <textarea name="doc_description[]" id="doc_note" class="form-control"></textarea>
+                                            </td>
+                                            <td>
+                                                <input type="file" name="doc_image[]" multiple class="form-control"
+                                                    style="width:250px" />
+                                            </td>
+                                            <td style="width: 20px">
+                                                <span class="btn btn-sm btn-success addDocRow"><i class="fa fa-plus"
+                                                        aria-hidden="true"></i></span>
+                                            </td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="showDocRow"></tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    {{-- Doc End --}}
+                        {{-- Doc End --}}
                         <div class="col-md-12">
                             <x-form-textarea name="description" label="description" />
                         </div>

@@ -42,3 +42,4 @@ Route::patch('/sliders/is-active/{slider}', [SliderController::class, 'status'])
 
 Route::resource('/properties', PropertyController::class)->except(['show', 'create']);
 Route::patch('/properties/is-active/{slider}', [PropertyController::class, 'status'])->name('properties.is_active');
+Route::get('/rooms-destroy', [PropertyController::class, 'roomDestroy'])->name('rooms.destroy');
