@@ -21,3 +21,5 @@ Route::post('login/locked', [LockScreenController::class, 'unlock'])->name('logi
 
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/properties', [IndexController::class, 'property'])->name('properties');
+Route::get('/property-details/{property}', [IndexController::class, 'propertyDetail'])->name('property_details');

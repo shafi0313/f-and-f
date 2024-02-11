@@ -118,26 +118,36 @@ class PropertyController extends Controller
         if ($error = $this->authorize('property-add')) {
             return $error;
         }
-        $data = $property->validated();
-        $image = $property->image;
-        if ($request->hasFile('image')) {
-            $data['image'] = imgWebpUpdate($request->image, 'property', [360, 260], $image);
-        }
-        if ($request->has('name')) {
-            foreach ($request->doc_name as $key => $doc_name) {
-                $room = [
-                    'property_id' => $property->id,
-                    'name'        => $doc_name,
-                    'description' => $request->doc_description[$key],
-                ];
-                $room['image'] = imgWebpStore($request->doc_image[$key], 'room', [360, 260]);
-                Room::updateOrCreate($room);
-            }
-        }
         try {
-            $property->update($data);
+            $validatedData = $request->validated();
+
+            $property = Property::findOrFail($validatedData['property_id']);
+            $property->update($validatedData);
+
+            $existingImages = $property->image;
+
+            if ($request->hasFile('image')) {
+                $imagePath = imgWebpUpdate($request->file('image'), 'property', [360, 260], $existingImages);
+                $property->update(['image' => $imagePath]);
+            }
+
+            if ($request->has('doc_name')) {
+                foreach ($request->doc_name as $key => $doc_name) {
+                    $roomData = [
+                        'name' => $doc_name,
+                        'description' => $request->doc_description[$key],
+                    ];
+
+                    if ($request->hasFile('doc_image.' . $key)) {
+                        $roomData['image'] = imgWebpStore($request->file('doc_image.' . $key), 'room', [360, 260]);
+                    }
+                    Room::updateOrCreate(['id' => $key], $roomData);
+                }
+            }
+
             return response()->json(['message' => 'The information has been updated'], 200);
         } catch (\Exception $e) {
+            return $e->getMessage();
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
         }
     }

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('state', 80)->nullable();
             $table->string('image', 32)->nullable();
             $table->text('description')->nullable();
+            $table->tinyInteger('type');
             $table->boolean('is_active', [IsActive::ACTIVE, IsActive::INACTIVE])->default(IsActive::ACTIVE);
             $table->timestamps();
         });

@@ -82,7 +82,7 @@
                         <a href="#">About Us</a>
                     </li>
                     <li>
-                        <a href="#">Residential Property</a>
+                        <a href="{{ route('properties') }}">Residential Property</a>
                     </li>
                     <li>
                         <a href="#">Commercial Property</a>

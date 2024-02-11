@@ -22,6 +22,7 @@ class PropertySeeder extends Seeder
                 'state'       => 'State 1',
                 'image'       => 'property-5868b78639.webp',
                 'description' => 'Description 1',
+                'type'        => 1,
                 'is_active'   => 1
             ],
             [
@@ -32,6 +33,7 @@ class PropertySeeder extends Seeder
                 'state'       => 'State 1',
                 'image'       => 'property-3fe0f38318.webp',
                 'description' => 'Description 1',
+                'type'        => 1,
                 'is_active'   => 1
             ],
             [
@@ -42,6 +44,7 @@ class PropertySeeder extends Seeder
                 'state'       => 'State 1',
                 'image'       => 'property-d5ae5720b2.webp',
                 'description' => 'Description 1',
+                'type'        => 1,
                 'is_active'   => 1
             ],
         ];

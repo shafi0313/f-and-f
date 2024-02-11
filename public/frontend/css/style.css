@@ -11076,7 +11076,7 @@ h6 a:active,
     color: #fff;
 }
 
-.postColumn .imgHolder:before {
+/* .postColumn .imgHolder:before {
     position: absolute;
     content: "";
     top: 100%;
@@ -11111,7 +11111,7 @@ h6 a:active,
         rgba(19, 41, 61, 0) 0%,
         rgba(19, 41, 61, 0.5) 100%
     );
-}
+} */
 
 .postColumn .imgHolder img {
     max-width: none;

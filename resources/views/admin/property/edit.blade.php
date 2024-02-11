@@ -43,34 +43,37 @@
                                     <h5>Add Rooms or Others</h5>
                                     <table class="table table-bordered">
                                         {{-- <h2>Documents</h2> --}}
-                                        
-                                        <tr>
-                                            <th>Name *</th>
-                                            <th>Description</th>
-                                            <th width="250px">Image *</th>
-                                            <th style="width: 20px;text-align:center;">
-                                                <button class="btn btn-info btn-sm" style="padding: 4px 13px"><i
-                                                        class="fas fa-mouse"></i></button>
-                                            </th>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <th>Name *</th>
+                                                <th>Description</th>
+                                                <th width="250px">Image *</th>
+                                                <th style="width: 20px;text-align:center;">
+                                                    <button class="btn btn-info btn-sm" style="padding: 4px 13px"><i
+                                                            class="fas fa-mouse"></i></button>
+                                                </th>
+                                            </tr>
 
-                                        <tr>
-                                            <td>
-                                                <input type="text" name="doc_name[]" id="doc_name"
-                                                    class="form-control" />
-                                            </td>
-                                            <td>
-                                                <textarea name="doc_description[]" id="doc_note" class="form-control"></textarea>
-                                            </td>
-                                            <td>
-                                                <input type="file" name="doc_image[]" multiple class="form-control"
-                                                    style="width:250px" />
-                                            </td>
-                                            <td style="width: 20px">
-                                                <span class="btn btn-sm btn-success editDocRow"><i class="fa fa-plus"
-                                                        aria-hidden="true"></i></span>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="doc_name[]" id="doc_name"
+                                                        class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <textarea name="doc_description[]" id="doc_note" class="form-control"></textarea>
+                                                </td>
+                                                <td>
+                                                    <input type="file" name="doc_image[]" multiple class="form-control"
+                                                        style="width:250px" />
+                                                </td>
+                                                <td style="width: 20px">
+                                                    <span class="btn btn-sm btn-success editDocRow"><i class="fa fa-plus"
+                                                            aria-hidden="true"></i></span>
+                                                </td>
+                                            </tr>
+                                        </thead>
+
+
                                         <tbody id="editShowDocRow"></tbody>
                                         @foreach ($property->rooms as $room)
                                             <tr>

@@ -287,19 +287,17 @@
                                 <div class="slick-carousel slickSlider postColumnImageSlider">
                                     <div>
                                         <div class="imgHolder">
-                                            <a href="#">
+                                            <a href="{{ route('property_details', $property->id) }}">
                                                 <img src="{{ imagePath('property', $property->image) }}"
-                                                    alt="image description">
+                                                    alt="{{ $property->name }}">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- linkToFavourite -->
-                                <a href="#"
-                                    class="linkToFavourite roundedCircle bg-primary textWhite icnHeartBeatAnim"><i
-                                        class="far fa-heart"></i></a>
                             </div>
-                            <h2 class="fontNeuron text-capitalize"><a href="properties-single1.html">{{ $property->name }}</a>
+                            <h2 class="fontNeuron text-capitalize">
+                                <a href="{{ route('property_details', $property->id) }}">{{ $property->name }}
+                                </a>
                             </h2>
                             <address>
                                 <span class="icn"><i class="fi flaticon-pin-1"></i></span>
