@@ -1,5 +1,6 @@
 @extends('frontend.layouts.app')
 @section('content')
+
     <!-- introSlider -->
     <section class="slick-fade slickSlider introSlider">
         @foreach ($sliders as $slider)
@@ -267,7 +268,7 @@
         </div>
     </form> --}}
     <!-- latestPostsBlock -->
-    <section class="latestPostsBlock container">
+    {{-- <section class="latestPostsBlock container">
         <!-- rowHead -->
         <header class="row rowHead">
             <div class="col-xs-12 col-sm-5">
@@ -312,7 +313,7 @@
             <a href="properties-detial.html" class="btn btn-primary btnPrimaryOutline text-capitalize fontNeuron">Show
                 More Property</a>
         </div>
-    </section>
+    </section> --}}
     <!-- mostPostsBlock -->
     <section class="mostPostsBlock bgWhite">
         <div class="container">
@@ -415,8 +416,7 @@
                             <article class="profileColumn hasOver">
                                 <div class="aligncenter">
                                     <a href="agent-detail.html">
-                                        <img src="https://via.placeholder.com/260x260"
-                                            alt="Veronica Green Sales Executive">
+                                        <img src="https://via.placeholder.com/260x260" alt="Veronica Green Sales Executive">
                                     </a>
                                 </div>
                                 <div class="textWrap">
@@ -442,8 +442,7 @@
                             <article class="profileColumn hasOver">
                                 <div class="aligncenter">
                                     <a href="agent-detail.html">
-                                        <img src="https://via.placeholder.com/260x260"
-                                            alt="Guti Salvio Real Estate Broker">
+                                        <img src="https://via.placeholder.com/260x260" alt="Guti Salvio Real Estate Broker">
                                     </a>
                                 </div>
                                 <div class="textWrap">

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesAndPermissionsSeeder::class);
         $this->call([UserSeeder::class]);
         $this->call([PropertySeeder::class]);
+        $this->call([SliderSeeder::class]);
 
     }
 }

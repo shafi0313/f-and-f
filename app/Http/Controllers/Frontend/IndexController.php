@@ -28,4 +28,9 @@ class IndexController extends Controller
         $rooms = Room::where('property_id', $property->id)->get();
         return view('frontend.property-room', compact('property', 'rooms'));
     }
+
+    public function abort()
+    {
+        return view('frontend.about');
+    }
 }
