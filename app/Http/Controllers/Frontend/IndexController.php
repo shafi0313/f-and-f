@@ -35,4 +35,9 @@ class IndexController extends Controller
         $about = About::first();
         return view('frontend.about', compact('about'));
     }
+
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
 }
