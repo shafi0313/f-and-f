@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Room;
+use App\Models\About;
 use App\Models\Slider;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Property;
-use App\Models\Room;
 
 class IndexController extends Controller
 {
@@ -29,8 +30,9 @@ class IndexController extends Controller
         return view('frontend.property-room', compact('property', 'rooms'));
     }
 
-    public function abort()
+    public function about()
     {
-        return view('frontend.about');
+        $about = About::first();
+        return view('frontend.about', compact('about'));
     }
 }

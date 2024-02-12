@@ -79,7 +79,7 @@
                         <a href="{{ route('index') }}">Home</a>
                     </li>
                     <li>
-                        <a href="#">About Us</a>
+                        <a href="{{ route('about') }}">About Us</a>
                     </li>
                     <li>
                         <a href="{{ route('properties') }}">Residential Property</a>
