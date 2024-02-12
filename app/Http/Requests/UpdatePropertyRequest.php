@@ -30,6 +30,7 @@ class UpdatePropertyRequest extends FormRequest
             'image'       => ['nullable', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
             'doc_image'   => ['nullable', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
             'description' => ['nullable', 'string'],
+            'type'        => ['required'],
             'is_active'   => ['nullable', 'boolean'],
         ];
     }

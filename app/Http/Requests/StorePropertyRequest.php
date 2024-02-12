@@ -29,6 +29,7 @@ class StorePropertyRequest extends FormRequest
             'state'       => ['nullable', 'string', 'min:1', 'max:80'],
             'image'       => ['required', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
             'description' => ['nullable', 'string'],
+            'type'        => ['required'],
             'is_active'   => ['nullable', 'boolean'],
         ];
     }

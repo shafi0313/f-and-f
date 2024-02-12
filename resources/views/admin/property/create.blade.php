@@ -11,6 +11,14 @@
                 <div class="modal-body">
                     <div class="row gy-2">
                         <div class="col-md-6">
+                            <label for="" class="form-label">Type</label>
+                            <select name="type" class="form-select">
+                                <option value="">Select</option>
+                                <option value="1">Residential Property</option>
+                                <option value="2">Commercial Property</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
                             <x-form-input name="name" label="Name *" />
                         </div>
                         <div class="col-md-6">
