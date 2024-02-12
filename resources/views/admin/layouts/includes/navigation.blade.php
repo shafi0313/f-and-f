@@ -108,6 +108,13 @@
                 </div>
             </li>
 
+            <li class="side-nav-item">
+                <a href="{{ route('admin.about.edit', 1) }}" class="side-nav-link">
+                    <i class="ri-calendar-2-fill"></i>
+                    <span> About </span>
+                </a>
+            </li>
+
 
 
             <li class="side-nav-item">
