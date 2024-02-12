@@ -4,7 +4,7 @@
         <!-- rowHead -->
         <header class="row rowHead">
             <div class="col-xs-12 col-sm-5">
-                <<h1 class="fontNeuron blockH text-uppercase">
+                <h1 class="fontNeuron blockH text-uppercase">
                     <span class="bdrBottom">ABOUT</span>
                     <span class="textSecondary">US</span>
                 </h1>
