@@ -24,4 +24,5 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/about', [IndexController::class, 'about'])->name('about');
 Route::get('/contact', [IndexController::class, 'contact'])->name('contact');
 Route::get('/properties', [IndexController::class, 'property'])->name('properties');
+Route::get('/commercial-property', [IndexController::class, 'commercialProperty'])->name('commercial_property');
 Route::get('/property-details/{property}', [IndexController::class, 'propertyDetail'])->name('property_details');

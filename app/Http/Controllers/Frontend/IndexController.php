@@ -30,6 +30,13 @@ class IndexController extends Controller
         return view('frontend.property-room', compact('property', 'rooms'));
     }
 
+
+    public function commercialProperty()
+    {
+        $properties = Property::whereType(2)->where('is_active', 1)->get();
+        return view('frontend.commercial-property', compact('properties'));
+    }
+
     public function about()
     {
         $about = About::first();

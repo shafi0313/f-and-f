@@ -85,7 +85,7 @@
                         <a href="{{ route('properties') }}">Residential Property</a>
                     </li>
                     <li>
-                        <a href="#">Commercial Property</a>
+                        <a href="{{ route('commercial_property') }}">Commercial Property</a>
                     </li>
                     <!-- remove dropdownFull class when its just regular dropdown -->
 
