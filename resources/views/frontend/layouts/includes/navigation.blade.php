@@ -94,7 +94,7 @@
                         <div class="frame-wrap">
                             <div class="frame">
                                 <ul class="dropdown-menu pageMainNavDropdown pageMainNavDropdown1">
-                                    <li><a href="404.html">Residential Rental Application</a></li>
+                                    <li><a href="{{ route('residential-application.create') }}">Residential Rental Application</a></li>
                                     <li><a href="404.html">Commercial Lease Application</a></li>
                                 </ul>
                             </div>

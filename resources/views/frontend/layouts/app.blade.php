@@ -57,6 +57,7 @@
     <!-- include custom JavaScript -->
     <script src="{{ asset('frontend/js/jquery.main.js') }}"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/init.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>
