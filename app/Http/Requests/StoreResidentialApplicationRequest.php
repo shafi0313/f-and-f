@@ -33,7 +33,7 @@ class StoreResidentialApplicationRequest extends FormRequest
             'department'       => ['nullable', 'string', 'min:1', 'max:191'],
             'monthly_income'   => ['nullable', 'string', 'min:1', 'max:191'],
             'annual_income'    => ['nullable', 'string', 'min:1', 'max:191'],
-            'income_cer'       => ['required', 'string', 'min:1', 'max:191'],
+            'income_cer'       => ['required', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
             'pets'             => ['required', 'string', 'min:1', 'max:10'],
             'current_address'  => ['required', 'string', 'min:1', 'max:191'],
             'current_address2' => ['required', 'string', 'min:1', 'max:191'],
@@ -50,12 +50,12 @@ class StoreResidentialApplicationRequest extends FormRequest
             'move_date'        => ['required', 'date'],
             'security_date'    => ['required', 'date'],
             'pay_method'       => ['required', 'string', 'min:1', 'max:191'],
-            'signature1'       => ['required', 'string', 'min:1', 'max:191'],
-            'signature1_date'  => ['required', 'string', 'min:1', 'max:191'],
-            'signature2'       => ['nullable', 'string', 'min:1', 'max:191'],
-            'signature2_date'  => ['nullable', 'string', 'min:1', 'max:191'],
-            'signature3'       => ['nullable', 'string', 'min:1', 'max:191'],
-            'signature3_date'  => ['nullable', 'string', 'min:1', 'max:191']
+            'signature1'       => ['nullable'],
+            'signature1_date'  => ['required', 'date'],
+            'signature2'       => ['nullable'],
+            'signature2_date'  => ['nullable', 'date'],
+            'signature3'       => ['nullable'],
+            'signature3_date'  => ['nullable', 'date'],
         ];
     }
 }

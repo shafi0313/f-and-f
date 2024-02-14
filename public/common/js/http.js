@@ -114,6 +114,7 @@ function ajaxStore(e, form) {
         contentType: false,
         processData: false,
         success: (res) => {
+            $(form).trigger("reset");
             swal({
                 icon: "success",
                 title: "Success",

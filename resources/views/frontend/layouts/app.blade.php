@@ -55,8 +55,18 @@
     <!-- include bootstrap JavaScript -->
     <script src="{{ asset('frontend/js/bootstrap-slider.min.js') }}"></script>
     <!-- include custom JavaScript -->
+    @include('sweetalert::alert')
+    {{-- Sweet alert --}}
+    <script src="{{ asset('common/plugins/sweet-alert/sweetalert-2.min.js') }}"></script>
+    {{-- Cute alert --}}
+    <link href="{{ asset('common/plugins/cute-alert/cute-alert.css') }}" rel="stylesheet">
+    <script src="{{ asset('common/plugins/cute-alert/cute-alert.js') }}"></script>
+    {{-- Select 2 --}}
+    <link src="{{ asset('common/plugins/select2/css/select2.min.css') }}">
+    <script src="{{ asset('common/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('frontend/js/jquery.main.js') }}"></script>
     <script type="text/javascript" src="{{ asset('frontend/js/init.js') }}"></script>
+    <script src="{{ asset('common/js/http.js') }}"></script>
     @stack('scripts')
 </body>
 

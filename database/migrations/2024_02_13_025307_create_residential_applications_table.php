@@ -41,11 +41,11 @@ return new class extends Migration
             $table->date('move_date');
             $table->date('security_date');
             $table->string('pay_method');
-            $table->string('signature1');
+            $table->text('signature1');
             $table->string('signature1_date');
-            $table->string('signature2')->nullable();
+            $table->text('signature2')->nullable();
             $table->string('signature2_date')->nullable();
-            $table->string('signature3')->nullable();
+            $table->text('signature3')->nullable();
             $table->string('signature3_date')->nullable();
             $table->timestamps();
         });

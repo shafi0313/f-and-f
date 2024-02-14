@@ -135,7 +135,7 @@
     <!-- Daterangepicker js -->
     <script src="{{ asset('backend/vendor/daterangepicker/moment.min.js') }}"></script>
     <script src="{{ asset('backend/vendor/daterangepicker/daterangepicker.js') }}"></script>
-
+    @include('sweetalert::alert')
     <!-- Apex Charts js -->
     {{-- <script src="{{ asset('backend/vendor/apexcharts/apexcharts.min.js') }}"></script> --}}
 

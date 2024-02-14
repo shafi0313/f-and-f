@@ -30,7 +30,26 @@ class ResidentialApplicationController extends Controller
      */
     public function store(StoreResidentialApplicationRequest $request)
     {
-        //
+        $data = $request->validated();
+        if ($request->hasFile('income_cer')) {
+            $data['income_cer'] = imgWebpStore($request->income_cer, 'application');
+        }
+        // if ($request->hasFile('signature1')) {
+        //     $data['signature1'] = imgWebpStore($request->signature1, 'application');
+        // }
+        // if ($request->hasFile('signature2')) {
+        //     $data['signature2'] = imgWebpStore($request->signature2, 'application');
+        // }
+        // if ($request->hasFile('signature3')) {
+        //     $data['signature3'] = imgWebpStore($request->signature3, 'application');
+        // }
+
+        try {
+            ResidentialApplication::create($data);
+            return response()->json(['message' => 'The information has been inserted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
+        }
     }
 
     /**
