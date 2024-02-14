@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Admin\LockScreenController;
+use App\Http\Controllers\Frontend\CommercialApplicationController;
 use App\Http\Controllers\Frontend\ResidentialApplicationController;
 
 /*
@@ -28,4 +29,5 @@ Route::get('/properties', [IndexController::class, 'property'])->name('propertie
 Route::get('/commercial-property', [IndexController::class, 'commercialProperty'])->name('commercial_property');
 Route::get('/property-details/{property}', [IndexController::class, 'propertyDetail'])->name('property_details');
 
-Route::resource('/residential-application', ResidentialApplicationController::class);
+Route::resource('/residential-application', ResidentialApplicationController::class)->only(['create', 'store']);
+Route::resource('/commercial-application', CommercialApplicationController::class)->only(['create', 'store']);

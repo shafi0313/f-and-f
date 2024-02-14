@@ -87,15 +87,16 @@
                     <li>
                         <a href="{{ route('commercial_property') }}">Commercial Property</a>
                     </li>
-                    <!-- remove dropdownFull class when its just regular dropdown -->
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle">Application<span class="caret"></span></a>
                         <div class="frame-wrap">
                             <div class="frame">
                                 <ul class="dropdown-menu pageMainNavDropdown pageMainNavDropdown1">
-                                    <li><a href="{{ route('residential-application.create') }}">Residential Rental Application</a></li>
-                                    <li><a href="404.html">Commercial Lease Application</a></li>
+                                    <li><a href="{{ route('residential-application.create') }}">Residential Rental
+                                            Application</a></li>
+                                    <li><a href="{{ route('commercial-application.create') }}">Commercial Lease
+                                            Application</a></li>
                                 </ul>
                             </div>
                         </div>
