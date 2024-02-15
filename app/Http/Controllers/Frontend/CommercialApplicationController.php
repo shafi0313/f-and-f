@@ -30,7 +30,15 @@ class CommercialApplicationController extends Controller
      */
     public function store(StoreCommercialApplicationRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        try {
+            CommercialApplication::create($data);
+            return response()->json(['message' => 'The information has been inserted'], 200);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+            return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
+        }
     }
 
     /**

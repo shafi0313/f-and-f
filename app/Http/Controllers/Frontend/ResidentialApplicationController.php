@@ -34,15 +34,6 @@ class ResidentialApplicationController extends Controller
         if ($request->hasFile('income_cer')) {
             $data['income_cer'] = imgWebpStore($request->income_cer, 'application');
         }
-        // if ($request->hasFile('signature1')) {
-        //     $data['signature1'] = imgWebpStore($request->signature1, 'application');
-        // }
-        // if ($request->hasFile('signature2')) {
-        //     $data['signature2'] = imgWebpStore($request->signature2, 'application');
-        // }
-        // if ($request->hasFile('signature3')) {
-        //     $data['signature3'] = imgWebpStore($request->signature3, 'application');
-        // }
 
         try {
             ResidentialApplication::create($data);

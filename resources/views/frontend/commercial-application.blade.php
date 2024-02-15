@@ -11,7 +11,7 @@
             </div>
         </header>
         <!-- isoContentHolder -->
-        <form onsubmit="ajaxStore(event, this)" action="{{ route('residential-application.store') }}" method="POST"
+        <form onsubmit="ajaxStore(event, this)" action="{{ route('commercial-application.store') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -86,37 +86,37 @@
                     @endif
                 </div>
                 <div class="col-md-6">
-                    <label for="city" class="form-label">City</label>
-                    <input type="text" name="city" class="form-control">
-                    @if ($errors->has('city'))
-                        <div class="alert alert-danger">{{ $errors->first('city') }}</div>
+                    <label for="property_city" class="form-label">City</label>
+                    <input type="text" name="property_city" class="form-control">
+                    @if ($errors->has('property_city'))
+                        <div class="alert alert-danger">{{ $errors->first('property_city') }}</div>
                     @endif
                 </div>
                 <div class="col-md-6">
-                    <label for="state" class="form-label">State / Province</label>
-                    <input type="text" name="state" class="form-control">
-                    @if ($errors->has('state'))
-                        <div class="alert alert-danger">{{ $errors->first('state') }}</div>
+                    <label for="property_state" class="form-label">State / Province</label>
+                    <input type="text" name="property_state" class="form-control">
+                    @if ($errors->has('property_state'))
+                        <div class="alert alert-danger">{{ $errors->first('property_state') }}</div>
                     @endif
                 </div>
                 <div class="col-md-12">
-                    <label for="post" class="form-label">Postal / Zip Code</label>
-                    <input type="text" name="post" class="form-control">
-                    @if ($errors->has('post'))
-                        <div class="alert alert-danger">{{ $errors->first('post') }}</div>
+                    <label for="property_post" class="form-label">Postal / Zip Code</label>
+                    <input type="text" name="property_post" class="form-control">
+                    @if ($errors->has('property_post'))
+                        <div class="alert alert-danger">{{ $errors->first('property_post') }}</div>
                     @endif
                 </div>
                 <div class="col-md-12">
-                    <label for="d_of_b" class="form-label">Property Description *</label>
+                    <label for="property_description" class="form-label">Property Description *</label>
                     <textarea name="property_description" class="form-control" rows="5"></textarea>
-                    @if ($errors->has('d_of_b'))
-                        <div class="alert alert-danger">{{ $errors->first('d_of_b') }}</div>
+                    @if ($errors->has('property_description'))
+                        <div class="alert alert-danger">{{ $errors->first('property_description') }}</div>
                     @endif
                 </div>
                 <div class="col-md-6">
-                    <label for="d_of_b" class="form-label">Does the property have a parking lot? *</label>
+                    <label for="parking" class="form-label">Does the property have a parking lot? *</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="vehicle" value="Yes" id="parking1">
+                        <input class="form-check-input" type="radio" name="parking" value="Yes" id="parking1">
                         <label class="form-check-label" for="parking1">
                             Yes
                         </label>
@@ -353,17 +353,17 @@
                 </div>
 
                 <div class="col-md-12">
-                    <label for="current_address" class="form-label">Current Address *</label>
-                    <input type="text" name="current_address" class="form-control">
-                    @if ($errors->has('current_address'))
-                        <div class="alert alert-danger">{{ $errors->first('current_address') }}</div>
+                    <label for="address" class="form-label">Current Address *</label>
+                    <input type="text" name="address" class="form-control">
+                    @if ($errors->has('address'))
+                        <div class="alert alert-danger">{{ $errors->first('address') }}</div>
                     @endif
                 </div>
                 <div class="col-md-12">
-                    <label for="current_address2" class="form-label">Address Line 2</label>
-                    <input type="text" name="current_address2" class="form-control">
-                    @if ($errors->has('current_address2'))
-                        <div class="alert alert-danger">{{ $errors->first('current_address2') }}</div>
+                    <label for="address2" class="form-label">Address Line 2</label>
+                    <input type="text" name="address2" class="form-control">
+                    @if ($errors->has('address2'))
+                        <div class="alert alert-danger">{{ $errors->first('address2') }}</div>
                     @endif
                 </div>
                 <div class="col-md-6">
@@ -482,16 +482,16 @@
                     @endif
                 </div>
                 <div class="col-md-12">
-                    <label for="guarantee_lease" class="form-label">Type a question *</label>
-                    <textarea name="guarantee_lease" class="form-control" rows="6"></textarea>
-                    @if ($errors->has('guarantee_lease'))
-                        <div class="alert alert-danger">{{ $errors->first('guarantee_lease') }}</div>
+                    <label for="question" class="form-label">Type a question *</label>
+                    <textarea name="question" class="form-control" rows="6"></textarea>
+                    @if ($errors->has('question'))
+                        <div class="alert alert-danger">{{ $errors->first('question') }}</div>
                     @endif
                 </div>
 
             </div>
 
-            
+
             <div class="row">
                 <div class="col-md-6">
                     <label for="signature1" class="form-label">Applicant's Sign 1 *</label>
