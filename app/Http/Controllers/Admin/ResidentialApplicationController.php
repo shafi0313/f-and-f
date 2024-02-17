@@ -15,6 +15,9 @@ class ResidentialApplicationController extends Controller
             $residentialApplication = ResidentialApplication::query();
             return DataTables::of($residentialApplication)
                 ->addIndexColumn()
+                ->addColumn('signature1', function ($row) {
+                    return '<img src="' . $row->signature1 . '" alt="">';
+                })
                 ->addColumn('action', function ($row) {
                     $btn = '';
                     // if (userCan('slider-edit')) {
@@ -25,7 +28,7 @@ class ResidentialApplicationController extends Controller
                     }
                     return $btn;
                 })
-                ->rawColumns(['content', 'image', 'is_active', 'action'])
+                ->rawColumns(['signature1', 'action'])
                 ->make(true);
         }
         return view('admin.residential-application.index');
