@@ -230,13 +230,13 @@
                 <div class="col-md-6">
                     <label for="d_of_b" class="form-label">Have you been convicted of any crime before? *</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="crime" id="crime1">
+                        <input class="form-check-input" type="radio" name="crime" value="Yes" id="crime1">
                         <label class="form-check-label" for="crime1">
                             Yes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="crime" id="crime2">
+                        <input class="form-check-input" type="radio" name="crime" value="No" id="crime2">
                         <label class="form-check-label" for="crime2">
                             No
                         </label>
