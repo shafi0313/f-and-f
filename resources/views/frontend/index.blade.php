@@ -93,98 +93,24 @@
                 <div class="col-xs-12 col-md-8 col-md-offset-2">
                     <!-- testimonialSlider -->
                     <div class="slickSlider testimonial-carousel testimonialSlider">
-                        <div>
-                            <!-- testimonialColumn -->
-                            <article class="testimonialColumn text-center">
-                                <div class="aligncenter roundedCircle">
-                                    <a href="#">
-                                        <img src="https://via.placeholder.com/184x184" class="roundedCircle"
-                                            alt="image description">
-                                    </a>
-                                </div>
-                                <h2 class="fontNeuron"><a href="#">The Hermess Family</a></h2>
-                                <p><em>Although we haven’t had many issues but any time there has been an issue you have
-                                        been incredibly helpful and whenever you have come out for an inspection you have
-                                        been so personable and absolutely lovely to be around. You are a great addition to
-                                        the Realtyspace Team and i&hellip;</em></p>
-                            </article>
-                        </div>
-                        <div>
-                            <!-- testimonialColumn -->
-                            <article class="testimonialColumn text-center">
-                                <div class="aligncenter roundedCircle">
-                                    <a href="#">
-                                        <img src="https://via.placeholder.com/184x184" class="roundedCircle"
-                                            alt="image description">
-                                    </a>
-                                </div>
-                                <div class="textWrap">
-                                    <h2 class="fontNeuron"><a href="#">The Hermess Family</a></h2>
-                                    <p><em>Although we haven’t had many issues but any time there has been an issue you have
-                                            been incredibly helpful and whenever you have come out for an inspection you
-                                            have been so personable and absolutely lovely to be around. You are a great
-                                            addition to the Realtyspace Team and i&hellip;</em></p>
-                                </div>
-                            </article>
-                        </div>
-                        <div>
-                            <!-- testimonialColumn -->
-                            <article class="testimonialColumn text-center">
-                                <div class="aligncenter roundedCircle">
-                                    <a href="#">
-                                        <img src="https://via.placeholder.com/184x184" class="roundedCircle"
-                                            alt="image description">
-                                    </a>
-                                </div>
-                                <div class="textWrap">
-                                    <h2 class="fontNeuron"><a href="#">The Hermess Family</a></h2>
-                                    <p><em>Although we haven’t had many issues but any time there has been an issue you have
-                                            been incredibly helpful and whenever you have come out for an inspection you
-                                            have been so personable and absolutely lovely to be around. You are a great
-                                            addition to the Realtyspace Team and i&hellip;</em></p>
-                                </div>
-                            </article>
-                        </div>
-                        <div>
-                            <!-- testimonialColumn -->
-                            <article class="testimonialColumn text-center">
-                                <div class="aligncenter roundedCircle">
-                                    <a href="#">
-                                        <img src="https://via.placeholder.com/184x184" class="roundedCircle"
-                                            alt="image description">
-                                    </a>
-                                </div>
-                                <div class="textWrap">
-                                    <h2 class="fontNeuron"><a href="#">The Hermess Family</a></h2>
-                                    <p><em>Although we haven’t had many issues but any time there has been an issue you have
-                                            been incredibly helpful and whenever you have come out for an inspection you
-                                            have been so personable and absolutely lovely to be around. You are a great
-                                            addition to the Realtyspace Team and i&hellip;</em></p>
-                                </div>
-                            </article>
-                        </div>
-                        <div>
-                            <!-- testimonialColumn -->
-                            <article class="testimonialColumn text-center">
-                                <div class="aligncenter roundedCircle">
-                                    <a href="#">
-                                        <img src="https://via.placeholder.com/184x184" class="roundedCircle"
-                                            alt="image description">
-                                    </a>
-                                </div>
-                                <div class="textWrap">
-                                    <h2 class="fontNeuron"><a href="#">The Hermess Family</a></h2>
-                                    <p><em>Although we haven’t had many issues but any time there has been an issue you have
-                                            been incredibly helpful and whenever you have come out for an inspection you
-                                            have been so personable and absolutely lovely to be around. You are a great
-                                            addition to the Realtyspace Team and i&hellip;</em></p>
-                                </div>
-                            </article>
-                        </div>
+                        @foreach ($feedbacks as $feedback)
+                            <div>
+                                <!-- testimonialColumn -->
+                                <article class="testimonialColumn text-center">
+                                    <div class="aligncenter roundedCircle">
+                                        <a href="#">
+                                            <img src="{{ imagePath('feedback', $feedback->image) }}" class="roundedCircle"
+                                                alt="{{ $feedback->name }}">
+                                        </a>
+                                    </div>
+                                    <h2 class="fontNeuron"><a href="#">{{ $feedback->name }}</a></h2>
+                                    <p><em>{{ $feedback->content }}</em></p>
+                                </article>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
 @endsection

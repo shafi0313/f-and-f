@@ -8,13 +8,15 @@ use App\Models\Slider;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Feedback;
 
 class IndexController extends Controller
 {
     public function index()
     {
-        $data['sliders'] = Slider::where('is_active', 1)->get();
+        $data['sliders']    = Slider::where('is_active', 1)->get();
         $data['properties'] = Property::whereType(1)->where('is_active', 1)->get();
+        $data['feedbacks']  = Feedback::where('is_active', 1)->get();
         return view('frontend.index', $data);
     }
 
