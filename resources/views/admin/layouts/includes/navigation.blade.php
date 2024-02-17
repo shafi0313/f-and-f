@@ -36,8 +36,7 @@
         <div class="leftbar-user p-3 text-white">
             <a href="{{ route('admin.my-profile.index') }}" class="d-flex align-items-center text-reset">
                 <div class="flex-shrink-0">
-                    <img src="{{ profileImg() }}" alt="user-image" height="42"
-                        class="rounded-circle shadow">
+                    <img src="{{ profileImg() }}" alt="user-image" height="42" class="rounded-circle shadow">
                 </div>
                 <div class="flex-grow-1 ms-2">
                     <span class="fw-semibold fs-15 d-block">{{ user()->name }}</span>
@@ -88,10 +87,37 @@
                 </a>
             </li>
 
+            <li class="side-nav-item">
+                <a href="{{ route('admin.about.edit', 1) }}" class="side-nav-link">
+                    <i class="ri-calendar-2-fill"></i>
+                    <span> About </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarApplication" aria-expanded="false"
+                    aria-controls="sidebarApplication" class="side-nav-link">
+                    <i class="ri-mail-fill"></i>
+                    <span> Property Application </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarApplication">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{ route('admin.residential-applications.index') }}">Residential Property
+                                Applications</a>
+                        </li>
+                        <li>
+                            <a href="#">Read Email</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
             {{-- settings --}}
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarSettings" aria-expanded="false" aria-controls="sidebarSettings"
-                    class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarSettings" aria-expanded="false"
+                    aria-controls="sidebarSettings" class="side-nav-link">
                     <i class="fa-solid fa-gear"></i>
                     <span> @lang('Settings') </span>
                     <span class="menu-arrow"></span>
@@ -109,39 +135,13 @@
             </li>
 
             <li class="side-nav-item">
-                <a href="{{ route('admin.about.edit', 1) }}" class="side-nav-link">
-                    <i class="ri-calendar-2-fill"></i>
-                    <span> About </span>
-                </a>
-            </li>
-
-
-
-            <li class="side-nav-item">
                 <a href="" class="side-nav-link">
                     <i class="ri-calendar-2-fill"></i>
                     <span> Calendar </span>
                 </a>
             </li>
 
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail"
-                    class="side-nav-link">
-                    <i class="ri-mail-fill"></i>
-                    <span> Email </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarEmail">
-                    <ul class="side-nav-second-level">
-                        <li>
-                            <a href="#">Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#">Read Email</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+
 
             <li class="side-nav-title mt-2">Custom</li>
 

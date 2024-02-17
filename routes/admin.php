@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Setting\Permission\RoleController;
+use App\Http\Controllers\Admin\ResidentialApplicationController;
 use App\Http\Controllers\Setting\Permission\PermissionController;
 
 Route::get('/', function () {
@@ -46,3 +47,5 @@ Route::patch('/properties/is-active/{slider}', [PropertyController::class, 'stat
 Route::get('/rooms-destroy', [PropertyController::class, 'roomDestroy'])->name('rooms.destroy');
 
 Route::resource('/about', AboutController::class)->only(['edit', 'update']);
+
+Route::resource('/residential-applications', ResidentialApplicationController::class)->only(['index', 'destroy']);
