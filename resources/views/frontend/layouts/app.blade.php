@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- set the page title -->
-    <title>LemanHouse - Real Estate HTML Template</title>
+    <title>F and F Property Maintenance</title>
     <!-- include google roboto font cdn link -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
     <!-- include the site bootstrap stylesheet -->
