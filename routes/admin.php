@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Setting\AppDbBackupController;
 use App\Http\Controllers\Setting\Permission\RoleController;
+use App\Http\Controllers\Admin\CommercialApplicationController;
 use App\Http\Controllers\Admin\ResidentialApplicationController;
 use App\Http\Controllers\Setting\Permission\PermissionController;
 
@@ -54,3 +55,4 @@ Route::get('/rooms-destroy', [PropertyController::class, 'roomDestroy'])->name('
 Route::resource('/about', AboutController::class)->only(['edit', 'update']);
 
 Route::resource('/residential-applications', ResidentialApplicationController::class)->only(['index', 'destroy']);
+Route::resource('/commercial-applications', CommercialApplicationController::class)->only(['index', 'destroy']);

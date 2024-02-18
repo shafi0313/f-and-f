@@ -11,9 +11,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
                         <h4 class="card-title">List of Residential Rental Applications</h4>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                        {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
                             <i class="fa-solid fa-plus"></i> Add New
-                        </button>
+                        </button> --}}
                     </div>
                     <table id="data_table" class="table table-bordered bordered table-centered mb-0 w-100">
                         <thead>
@@ -40,7 +40,7 @@
                     // responsive: true,
                     scrollX: true,
                     scrollY: 400,
-                    ajax: "{{ route('admin.residential-applications.index') }}",
+                    ajax: "{{ route('admin.commercial-applications.index') }}",
                     columns: [{
                             data: 'DT_RowIndex',
                             name: 'DT_RowIndex',

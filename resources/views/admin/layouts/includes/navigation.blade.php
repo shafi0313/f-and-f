@@ -115,7 +115,8 @@
                                 Applications</a>
                         </li>
                         <li>
-                            <a href="#">Read Email</a>
+                            <a href="{{ route('admin.commercial-applications.index') }}">Commercial Lease
+                                Application</a>
                         </li>
                     </ul>
                 </div>
