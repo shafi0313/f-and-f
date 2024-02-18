@@ -5,7 +5,7 @@
             <div class="col-xs-6 col-sm-3">
                 <!-- logo -->
                 <div class="logo">
-                    <a href="home.html">
+                    <a href="{{ route('index') }}">
                         <img src="{{ asset('uploads/images/logo/f-and-f-2.png') }}" alt="" style="height: 48px">
                     </a>
                 </div>

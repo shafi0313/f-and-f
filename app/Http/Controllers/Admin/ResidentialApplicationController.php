@@ -33,4 +33,14 @@ class ResidentialApplicationController extends Controller
         }
         return view('admin.residential-application.index');
     }
+
+    public function destroy(ResidentialApplication $residentialApplication)
+    {
+        try {
+            $residentialApplication->delete();
+            return response()->json(['message' => 'The information has been deleted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
+        }
+    }
 }

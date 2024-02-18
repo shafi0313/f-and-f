@@ -40,7 +40,7 @@
                     // responsive: true,
                     scrollX: true,
                     scrollY: 400,
-                    ajax: "{{ route('admin.commercial-applications.index') }}",
+                    ajax: "{{ route('admin.residential-applications.index') }}",
                     columns: [{
                             data: 'DT_RowIndex',
                             name: 'DT_RowIndex',

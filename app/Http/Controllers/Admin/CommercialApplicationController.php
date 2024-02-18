@@ -33,4 +33,14 @@ class CommercialApplicationController extends Controller
         }
         return view('admin.commercial-application.index');
     }
+
+    public function destroy(CommercialApplication $commercialApplication)
+    {
+        try {
+            $commercialApplication->delete();
+            return response()->json(['message' => 'The information has been deleted'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
+        }
+    }
 }
