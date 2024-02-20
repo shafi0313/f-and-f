@@ -29,7 +29,7 @@
             </div>
             <div class="row property" style="margin-top: 10px">
                 <div class="col-md-4">
-                    <img src="{{ imagePath('property', '1484821429.png') }}" alt="">
+                    <img src="{{ imagePath('property', '1484821289.png') }}" alt="">
                 </div>
                 <div class="col-md-8">
                     <h4>Residential Property</h4>
@@ -41,7 +41,7 @@
             </div>
             <div class="row property" style="margin-top: 10px">
                 <div class="col-md-4">
-                    <img src="{{ imagePath('property', '1484821289.png') }}" alt="">
+                    <img src="{{ imagePath('property', 'office.jpg') }}" alt="">
                 </div>
                 <div class="col-md-8">
                     <h4>Commercial Property</h4>
