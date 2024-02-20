@@ -2,61 +2,61 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Slider;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Requests\StoreSliderRequest;
-use App\Http\Requests\UpdateSliderRequest;
+use App\Http\Requests\StoreServiceRequest;
+use App\Http\Requests\UpdateServiceRequest;
 
-class SliderController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        if ($error = $this->authorize('slider-manage')) {
+        if ($error = $this->authorize('service-manage')) {
             return $error;
         }
 
         if ($request->ajax()) {
-            $sliders = Slider::query();
-            return DataTables::of($sliders)
+            $services = Service::query();
+            return DataTables::of($services)
                 ->addIndexColumn()
                 ->addColumn('image', function ($row) {
-                    $path = imagePath('slider', $row->image);
+                    $path = imagePath('service', $row->image);
                     return '<img src="' . $path . '" width="70px" alt="image">';
                 })
                 ->addColumn('is_active', function ($row) {
-                    if (userCan('slider-edit')) {
-                        return view('button', ['type' => 'is_active', 'route' => route('admin.sliders.is_active', $row->id), 'row' => $row->is_active]);
+                    if (userCan('service-edit')) {
+                        return view('button', ['type' => 'is_active', 'route' => route('admin.services.is_active', $row->id), 'row' => $row->is_active]);
                     }
                 })
                 ->addColumn('action', function ($row) {
                     $btn = '';
-                    if (userCan('slider-edit')) {
-                        $btn .= view('button', ['type' => 'ajax-edit', 'route' => route('admin.sliders.edit', $row->id), 'row' => $row]);
+                    if (userCan('service-edit')) {
+                        $btn .= view('button', ['type' => 'ajax-edit', 'route' => route('admin.services.edit', $row->id), 'row' => $row]);
                     }
-                    if (userCan('slider-delete')) {
-                        $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.sliders.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
+                    if (userCan('service-delete')) {
+                        $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.services.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
                     }
                     return $btn;
                 })
                 ->rawColumns(['content', 'image', 'is_active', 'action'])
                 ->make(true);
         }
-        return view('admin.slider.index');
+        return view('admin.service.index');
     }
 
-    function status(Slider $slider)
+    function status(service $service)
     {
-        if ($error = $this->authorize('slider-edit')) {
+        if ($error = $this->authorize('service-edit')) {
             return $error;
         }
-        $slider->is_active = $slider->is_active  == 1 ? 0 : 1;
+        $service->is_active = $service->is_active  == 1 ? 0 : 1;
         try {
-            $slider->save();
+            $service->save();
             return response()->json(['message' => 'The status has been updated'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
@@ -66,18 +66,18 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSliderRequest $request)
+    public function store(StoreServiceRequest $request)
     {
-        if ($error = $this->authorize('slider-add')) {
+        if ($error = $this->authorize('service-add')) {
             return $error;
         }
         $data = $request->validated();
         if ($request->hasFile('image')) {
-            $data['image'] = imgWebpStore($request->image, 'slider', [1920, 750]);
+            $data['image'] = imgPngStore($request->image, 'service');
         }
 
         try {
-            Slider::create($data);
+            Service::create($data);
             return response()->json(['message' => 'The information has been inserted'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
@@ -87,13 +87,13 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, Slider $slider)
+    public function edit(Request $request, Service $service)
     {
-        if ($error = $this->authorize('slider-edit')) {
+        if ($error = $this->authorize('service-edit')) {
             return $error;
         }
         if ($request->ajax()) {
-            $modal = view('admin.slider.edit')->with(['slider' => $slider])->render();
+            $modal = view('admin.service.edit')->with(['service' => $service])->render();
             return response()->json(['modal' => $modal], 200);
         }
         return abort(500);
@@ -102,18 +102,18 @@ class SliderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSliderRequest $request, Slider $slider)
+    public function update(UpdateServiceRequest $request, Service $service)
     {
-        if ($error = $this->authorize('slider-add')) {
+        if ($error = $this->authorize('service-add')) {
             return $error;
         }
         $data = $request->validated();
-        $image = $slider->image;
+        $image = $service->image;
         if ($request->hasFile('image')) {
-            $data['image'] = imgWebpUpdate($request->image, 'slider', [1920, 750], $image);
+            $data['image'] = imgPngUpdate($request->image, 'service', [null, null], $image);
         }
         try {
-            $slider->update($data);
+            $service->update($data);
             return response()->json(['message' => 'The information has been updated'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);
@@ -123,14 +123,14 @@ class SliderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Slider $slider)
+    public function destroy(Service $service)
     {
-        if ($error = $this->authorize('slider-delete')) {
+        if ($error = $this->authorize('service-delete')) {
             return $error;
         }
         try {
-            imgUnlink('slider', $slider->image);
-            $slider->delete();
+            imgUnlink('service', $service->image);
+            $service->delete();
             return response()->json(['message' => 'The information has been deleted'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Oops something went wrong, Please try again'], 500);

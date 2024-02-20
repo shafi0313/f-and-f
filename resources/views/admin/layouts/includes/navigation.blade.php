@@ -73,38 +73,40 @@
                     </ul>
                 </div>
             </li>
-
-            <li class="side-nav-item">
-                <a href="{{ route('admin.about.edit', 1) }}" class="side-nav-link">
-                    <i class="ri-calendar-2-fill"></i>
-                    <span> About </span>
-                </a>
-            </li>
-
             <li class="side-nav-item">
                 <a href="{{ route('admin.sliders.index') }}" class="side-nav-link">
-                    <i class="ri-calendar-2-fill"></i>
+                    <i class="fa-solid fa-images"></i>
                     <span> Slider </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="{{ route('admin.properties.index') }}" class="side-nav-link">
-                    <i class="ri-calendar-2-fill"></i>
-                    <span> Property </span>
+                <a href="{{ route('admin.services.index') }}" class="side-nav-link">
+                    <i class="fa-solid fa-toolbox"></i>
+                    <span> Services </span>
                 </a>
             </li>
-
             <li class="side-nav-item">
                 <a href="{{ route('admin.feedbacks.index') }}" class="side-nav-link">
-                    <i class="ri-calendar-2-fill"></i>
+                    <i class="fa-solid fa-comments"></i>
                     <span> Feedback </span>
                 </a>
             </li>
-
+            <li class="side-nav-item">
+                <a href="{{ route('admin.about.edit', 1) }}" class="side-nav-link">
+                    <i class="fa-regular fa-address-card"></i>
+                    <span> About </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{{ route('admin.properties.index') }}" class="side-nav-link">
+                    <i class="fa-solid fa-building"></i>
+                    <span> Property </span>
+                </a>
+            </li>
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarApplication" aria-expanded="false"
                     aria-controls="sidebarApplication" class="side-nav-link">
-                    <i class="ri-mail-fill"></i>
+                    <i class="fa-solid fa-list-check"></i>
                     <span> Property Application </span>
                     <span class="menu-arrow"></span>
                 </a>
@@ -141,80 +143,6 @@
                     </ul>
                 </div>
             </li>
-
-            <li class="side-nav-item">
-                <a href="" class="side-nav-link">
-                    <i class="ri-calendar-2-fill"></i>
-                    <span> Calendar </span>
-                </a>
-            </li>
-
-
-
-            <li class="side-nav-title mt-2">Custom</li>
-
-            <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarMultiLevel" aria-expanded="false"
-                    aria-controls="sidebarMultiLevel" class="side-nav-link">
-                    <i class="ri-share-fill"></i>
-                    <span> Multi Level </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="sidebarMultiLevel">
-                    <ul class="side-nav-second-level">
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarSecondLevel" aria-expanded="false"
-                                aria-controls="sidebarSecondLevel">
-                                <span> Second Level </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarSecondLevel">
-                                <ul class="side-nav-third-level">
-                                    <li>
-                                        <a href="javascript: void(0);">Item 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript: void(0);">Item 2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarThirdLevel" aria-expanded="false"
-                                aria-controls="sidebarThirdLevel">
-                                <span> Third Level </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarThirdLevel">
-                                <ul class="side-nav-third-level">
-                                    <li>
-                                        <a href="javascript: void(0);">Item 1</a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a data-bs-toggle="collapse" href="#sidebarFourthLevel" aria-expanded="false"
-                                            aria-controls="sidebarFourthLevel">
-                                            <span> Item 2 </span>
-                                            <span class="menu-arrow"></span>
-                                        </a>
-                                        <div class="collapse" id="sidebarFourthLevel">
-                                            <ul class="side-nav-forth-level">
-                                                <li>
-                                                    <a href="javascript: void(0);">Item 2.1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript: void(0);">Item 2.2</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-
         </ul>
         <!--- End Sidemenu -->
 

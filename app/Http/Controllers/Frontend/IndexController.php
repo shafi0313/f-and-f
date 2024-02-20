@@ -9,6 +9,7 @@ use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Feedback;
+use App\Models\Service;
 
 class IndexController extends Controller
 {
@@ -17,6 +18,7 @@ class IndexController extends Controller
         $data['sliders']    = Slider::where('is_active', 1)->get();
         $data['properties'] = Property::whereType(1)->where('is_active', 1)->get();
         $data['feedbacks']  = Feedback::where('is_active', 1)->get();
+        $data['services']  = Service::where('is_active', 1)->get();
         return view('frontend.index', $data);
     }
 

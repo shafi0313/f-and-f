@@ -29,7 +29,7 @@
             </div>
             <div class="row property" style="margin-top: 10px">
                 <div class="col-md-4">
-                    <img src="{{ imagePath('property', '1484821289.png') }}" alt="">
+                    <img src="{{ imagePath('property', 'residensitial-property.jpg') }}" alt="">
                 </div>
                 <div class="col-md-8">
                     <h4>Residential Property</h4>
@@ -58,30 +58,16 @@
                 class="textSecondary">SERVICE</span></h1>
         <!-- servicesFetauresList -->
         <ul class="servicesFetauresList list-unstyled text-center">
-            <li>
-                <a href="#">
-                    <span class="icnHolder roundedCircle"><i class="fi flaticon-house"></i></span>
-                    <h2 class="fontNeuron text-capitalize">Saling Service</h2>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icnHolder roundedCircle"><i class="fi flaticon-rent"></i></span>
-                    <h2 class="fontNeuron text-capitalize">Renting Service</h2>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icnHolder roundedCircle"><i class="fi flaticon-list"></i></span>
-                    <h2 class="fontNeuron text-capitalize">Property Listing</h2>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icnHolder roundedCircle"><i class="fi flaticon-house-1"></i></span>
-                    <h2 class="fontNeuron text-capitalize">Property Management</h2>
-                </a>
-            </li>
+            @foreach ($services as $service)
+                <li>
+                    <a href="#">
+                        <span class="icnHolder roundedCircle">
+                            <img src="{{ imagePath('service', $service->image) }}" width="70px">
+                        </span>
+                        <h2 class="fontNeuron text-capitalize">{{ $service->name }}</h2>
+                    </a>
+                </li>
+            @endforeach
         </ul>
     </section>
 

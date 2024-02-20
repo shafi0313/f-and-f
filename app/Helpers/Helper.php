@@ -139,6 +139,47 @@ if (!function_exists('imgWebpUpdate')) {
         return $imageName;
     }
 }
+
+if (!function_exists('imgPngStore')) {
+    function imgPngStore($image, string $path, array $size = null)
+    {
+        $image = Image::make($image);
+        if (!is_null($size) && count($size) == 2) {
+            $image->fit($size[0], $size[1]);
+        }
+
+        $dir = public_path('/uploads/images/' . $path);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        $imageName = $path . '-' . uniqueId(10) . '.png';
+        $image->encode('png', 70)->save($dir . '/' . $imageName);
+        return $imageName;
+    }
+}
+
+if (!function_exists('imgPngUpdate')) {
+    function imgPngUpdate($image, string $path, array $size = null, $oldImage)
+    {
+        $image = Image::make($image);
+        if ($size[0] || $size[1]) {
+            $image->fit($size[0], $size[1]);
+        }
+
+        $dir = public_path('/uploads/images/' . $path);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+        $imageName = $path . '-' . uniqueId(10) . '.png';
+        $image->encode('png', 70)->save($dir . '/' . $imageName);
+
+        $checkPath =  $dir . '/' . $oldImage;
+        if (file_exists($checkPath)) {
+            unlink($checkPath);
+        }
+        return $imageName;
+    }
+}
 if (!function_exists('imgUnlink')) {
     function imgUnlink($folder, $image)
     {

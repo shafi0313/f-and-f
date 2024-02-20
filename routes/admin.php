@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyProfileController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\AdminUserController;
@@ -43,6 +44,9 @@ Route::resource('/my-profile', MyProfileController::class)->only(['index', 'edit
 
 Route::resource('/sliders', SliderController::class)->except(['show', 'create']);
 Route::patch('/sliders/is-active/{slider}', [SliderController::class, 'status'])->name('sliders.is_active');
+
+Route::resource('/services', ServiceController::class)->except(['show', 'create']);
+Route::patch('/services/is-active/{slider}', [ServiceController::class, 'status'])->name('services.is_active');
 
 
 Route::resource('/feedbacks', FeedbackController::class)->except(['show', 'create']);
