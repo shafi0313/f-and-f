@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-md-12 mt-3">
                                 <h5>Add Rooms or Others</h5>
-                                <table class="table table-bordered">
+                                <table class="w-100 table-bordered">
                                     {{-- <h2>Documents</h2> --}}
                                     <thead>
                                         <tr>

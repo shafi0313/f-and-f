@@ -107,7 +107,7 @@ class FeedbackController extends Controller
         if ($error = $this->authorize('feedback-add')) {
             return $error;
         }
-        $data = $feedback->validated();
+        $data = $request->validated();
         $image = $feedback->image;
         if ($request->hasFile('image')) {
             $data['image'] = imgWebpUpdate($request->image, 'feedback', [1920, 750], $image);

@@ -36,20 +36,22 @@
                                 <x-form-input name="address" label="address" />
                             </div>
 
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <img src="{{ imagePath('property', $property->image) }}" alt="" width="80px">
                             </div>
-                            <div class="col-md-31">
+                            <div class="col-md-6">
                                 <x-form-input type="file" name="image" label="image (Width: 360 px, Height: 260 px)" />
                             </div>
                             <div class="col-md-12">
                                 <x-form-textarea name="description" label="description" />
                             </div>
                             {{-- Doc Start --}}
+                            <hr>
+                            <hr>
                             <div class="row">
                                 <div class="col-md-12 mt-3">
                                     <h5>Add Rooms or Others</h5>
-                                    <table class="table table-bordered">
+                                    <table class="table-bordered w-100">
                                         {{-- <h2>Documents</h2> --}}
                                         <thead>
                                             <tr>
@@ -87,8 +89,8 @@
                                             <tr>
                                                 <input type="hidden" name="" value="{{ $room->id }}">
                                                 <td>
-                                                    <input type="text" name="" readonly value="{{ $room->name }}"
-                                                        id="doc_name" class="form-control" />
+                                                    <input type="text" name="" readonly
+                                                        value="{{ $room->name }}" id="doc_name" class="form-control" />
                                                 </td>
                                                 <td>
                                                     <textarea name="" id="doc_note" class="form-control">{{ $room->description }}</textarea>
