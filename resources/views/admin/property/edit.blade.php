@@ -85,18 +85,19 @@
                                         <tbody id="editShowDocRow"></tbody>
                                         @foreach ($property->rooms as $room)
                                             <tr>
+                                                <input type="hidden" name="" value="{{ $room->id }}">
                                                 <td>
-                                                    <input type="text" name="doc_name[]" value="{{ $room->name }}"
+                                                    <input type="text" name="" readonly value="{{ $room->name }}"
                                                         id="doc_name" class="form-control" />
                                                 </td>
                                                 <td>
-                                                    <textarea name="doc_description[]" id="doc_note" class="form-control">{{ $room->description }}</textarea>
+                                                    <textarea name="" id="doc_note" class="form-control">{{ $room->description }}</textarea>
                                                 </td>
                                                 <td>
-                                                    <img src="{{ imagePath('property', $room->image) }}" alt=""
+                                                    <img src="{{ imagePath('room', $room->image) }}" alt=""
                                                         width="60px">
-                                                    <input type="file" name="doc_image[]" multiple class="form-control"
-                                                        style="width:250px" />
+                                                    {{-- <input type="file" name="doc_image[]" multiple class="form-control"
+                                                        style="width:250px" /> --}}
                                                 </td>
                                                 <td style="width: 20px">
                                                     <span class="btn btn-sm btn-danger roomDelete"
@@ -104,6 +105,7 @@
                                                         <i class="fa fa-times" aria-hidden="true"></i>
                                                     </span>
                                                 </td>
+
                                             </tr>
                                         @endforeach
                                     </table>

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Room;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
-use App\Models\Room;
 
 class PropertyController extends Controller
 {
@@ -69,13 +70,14 @@ class PropertyController extends Controller
         if ($error = $this->authorize('property-add')) {
             return $error;
         }
+        DB::beginTransaction();
         $data = $request->validated();
         if ($request->hasFile('image')) {
             $data['image'] = imgWebpStore($request->image, 'property', [360, 260]);
         }
 
         $property = Property::create($data);
-        if ($request->has('name')) {
+        if ($request->has('doc_name') && !empty($request->doc_name) && !empty($request->doc_image)) {
             foreach ($request->doc_name as $key => $doc_name) {
                 $room = [
                     'property_id' => $property->id,
@@ -88,8 +90,10 @@ class PropertyController extends Controller
         }
 
         try {
+            DB::commit();
             return response()->json(['message' => 'The information has been inserted'], 200);
         } catch (\Exception $e) {
+            DB::rollBack();
             return response()->json(['message' => 'Oops something went wrong, Please try again.'], 500);
         }
     }
@@ -113,35 +117,50 @@ class PropertyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePropertyRequest $request, Property $property)
+    public function update(Request $request, UpdatePropertyRequest $proRequest, Property $property)
     {
         if ($error = $this->authorize('property-add')) {
             return $error;
         }
         try {
-            $validatedData = $request->validated();
+            $validatedData = $proRequest->validated();
 
-            $property = Property::findOrFail($validatedData['property_id']);
+            $property = Property::findOrFail($property->id);
             $property->update($validatedData);
 
             $existingImages = $property->image;
 
-            if ($request->hasFile('image')) {
-                $imagePath = imgWebpUpdate($request->file('image'), 'property', [360, 260], $existingImages);
+            if ($proRequest->hasFile('image')) {
+                $imagePath = imgWebpUpdate($proRequest->file('image'), 'property', [360, 260], $existingImages);
                 $property->update(['image' => $imagePath]);
             }
 
             if ($request->has('doc_name')) {
                 foreach ($request->doc_name as $key => $doc_name) {
+                    // if (!empty($request->room_id[$key])) {
+                    //     $room = Room::find($request->room_id[$key]);
+                    //     $roomData = [
+                    //         'property_id' => $property->id,
+                    //         'name'        => $doc_name,
+                    //         'description' => $request->doc_description[$key],
+                    //     ];
+                    //     if ($request->doc_image[$key]) {
+                    //         $roomData['image'] = imgWebpUpdate($request->doc_image[$key], 'room', [360, 260], $room->image);
+                    //     }
+                    //     $room->update($roomData);
+                    // } else {
+                    //     return $request;
                     $roomData = [
-                        'name' => $doc_name,
+                        'property_id' => $property->id,
+                        'name'        => $doc_name,
                         'description' => $request->doc_description[$key],
                     ];
 
-                    if ($request->hasFile('doc_image.' . $key)) {
-                        $roomData['image'] = imgWebpStore($request->file('doc_image.' . $key), 'room', [360, 260]);
+                    if ($request->doc_image[$key]) {
+                        $roomData['image'] = imgWebpStore($request->doc_image[$key], 'room', [360, 260]);
                     }
-                    Room::updateOrCreate(['id' => $key], $roomData);
+                    Room::create($roomData);
+                    // }
                 }
             }
 

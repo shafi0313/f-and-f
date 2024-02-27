@@ -11,7 +11,11 @@
             </div>
         @endforeach
     </section>
-
+<style>
+.mostPostsBlock p, .mostPostsBlock h4 {
+    font-style: italic;
+}
+</style>
     <!-- mostPostsBlock -->
     <section class="mostPostsBlock bgWhite">
         <div class="container">

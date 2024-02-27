@@ -20,8 +20,7 @@
                                     <div>
                                         <div class="imgHolder">
                                             <a href="#">
-                                                <img src="{{ imagePath('property', $room->image) }}"
-                                                    alt="{{ $room->name }}">
+                                                <img src="{{ imagePath('room', $room->image) }}" alt="{{ $room->name }}">
                                             </a>
                                         </div>
                                     </div>

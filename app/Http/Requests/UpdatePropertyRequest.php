@@ -28,7 +28,6 @@ class UpdatePropertyRequest extends FormRequest
             'city'        => ['nullable', 'string', 'min:1', 'max:80'],
             'state'       => ['nullable', 'string', 'min:1', 'max:80'],
             'image'       => ['nullable', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
-            'doc_image'   => ['nullable', 'image', 'mimes:jpeg,jpg,JPG,png,webp,svg'],
             'description' => ['nullable', 'string'],
             'type'        => ['required'],
             'is_active'   => ['nullable', 'boolean'],

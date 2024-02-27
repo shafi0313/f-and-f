@@ -53,9 +53,9 @@ if (!function_exists('strPad4')) {
 if (!function_exists('strPad6')) {
     function strPad6($data)
     {
-        if($data){
+        if ($data) {
             return str_pad($data, 6, '0', STR_PAD_LEFT);
-        }else{
+        } else {
             return '';
         }
     }
@@ -133,7 +133,7 @@ if (!function_exists('imgWebpUpdate')) {
         $image->encode('webp', 70)->save($dir . '/' . $imageName);
 
         $checkPath =  $dir . '/' . $oldImage;
-        if (file_exists($checkPath)) {
+        if ($oldImage && file_exists($checkPath)) {
             unlink($checkPath);
         }
         return $imageName;
