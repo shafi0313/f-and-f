@@ -58,5 +58,5 @@ Route::get('/rooms-destroy', [PropertyController::class, 'roomDestroy'])->name('
 
 Route::resource('/about', AboutController::class)->only(['edit', 'update']);
 
-Route::resource('/residential-applications', ResidentialApplicationController::class)->only(['index', 'destroy']);
-Route::resource('/commercial-applications', CommercialApplicationController::class)->only(['index', 'destroy']);
+Route::resource('/residential-applications', ResidentialApplicationController::class)->only(['index', 'edit', 'destroy']);
+Route::resource('/commercial-applications', CommercialApplicationController::class)->only(['index', 'edit', 'destroy']);

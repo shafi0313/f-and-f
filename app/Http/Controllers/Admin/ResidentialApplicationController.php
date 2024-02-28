@@ -23,6 +23,7 @@ class ResidentialApplicationController extends Controller
                     // if (userCan('slider-edit')) {
                     //     $btn .= view('button', ['type' => 'ajax-edit', 'route' => route('admin.sliders.edit', $row->id), 'row' => $row]);
                     // }
+                    $btn .= '<a href="' . route('admin.residential-applications.edit', $row->id) . '" class="btn btn-primary btn-sm">View</a>';
                     if (userCan('slider-delete')) {
                         $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.residential-applications.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
                     }
@@ -32,6 +33,12 @@ class ResidentialApplicationController extends Controller
                 ->make(true);
         }
         return view('admin.residential-application.index');
+    }
+
+    public function edit($id)
+    {
+        $res = ResidentialApplication::find($id);
+        return view('admin.residential-application.edit', compact('res'));
     }
 
     public function destroy(ResidentialApplication $residentialApplication)
