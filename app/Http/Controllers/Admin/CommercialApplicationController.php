@@ -23,6 +23,7 @@ class CommercialApplicationController extends Controller
                     // if (userCan('slider-edit')) {
                     //     $btn .= view('button', ['type' => 'ajax-edit', 'route' => route('admin.sliders.edit', $row->id), 'row' => $row]);
                     // }
+                    $btn .= '<a href="' . route('admin.commercial-applications.edit', $row->id) . '" class="btn btn-primary btn-sm">View</a>';
                     if (userCan('slider-delete')) {
                         $btn .= view('button', ['type' => 'ajax-delete', 'route' => route('admin.residential-applications.destroy', $row->id), 'row' => $row, 'src' => 'dt']);
                     }
@@ -32,6 +33,12 @@ class CommercialApplicationController extends Controller
                 ->make(true);
         }
         return view('admin.commercial-application.index');
+    }
+
+    public function edit($id)
+    {
+        $com = CommercialApplication::find($id);
+        return view('admin.commercial-application.edit', compact('com'));
     }
 
     public function destroy(CommercialApplication $commercialApplication)
